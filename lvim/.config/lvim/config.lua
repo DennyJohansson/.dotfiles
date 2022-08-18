@@ -1,12 +1,15 @@
 lvim.format_on_save = false
 -- lvim.lint_on_save = true
-lvim.colorscheme = "ayu"
+lvim.colorscheme = "tokyonight"
 -- vim.o.background = "light" -- or "light" for light mode lvim.leader = "space" -- add your own keymapping
 lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 lvim.builtin.terminal.direction = "horizontal"
 lvim.builtin.terminal.shading_factor = 1
 lvim.keys.normal_mode["<C-a>"] = ":ToggleTermToggleAll<cr>"
 lvim.keys.term_mode["<C-a>"] = "<cmd>ToggleTermToggleAll<cr>"
+
+lvim.builtin.bufferline.active = false
+lvim.builtin.lualine.active = false
 
 vim.o.relativenumber = true
 vim.o.foldmethod = "expr"
@@ -50,8 +53,6 @@ lvim.builtin.which_key.mappings["t"] = {
 	g = { ":lua require'jester'.debug_file()<CR>", "debug file" },
 }
 lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Projects" }
-lvim.builtin.which_key.mappings["Z"] = { "<cmd>ZenMode<CR>", "zen mode" }
-
 lvim.keys.visual_mode["J"] = ":m '>+1<CR>gv=gv"
 lvim.keys.visual_mode["K"] = ":m '<-2<CR>gv=gv"
 
@@ -113,14 +114,5 @@ lvim.plugins = {
 		end,
 	},
 	{ "godlygeek/tabular" },
-	{ "elzr/vim-json" },
 	{ "plasticboy/vim-markdown" },
-	"folke/zen-mode.nvim",
-	config = function()
-		require("zen-mode").setup({
-			-- your configuration comes here
-			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
-		})
-	end,
 }
