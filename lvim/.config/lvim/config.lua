@@ -8,9 +8,6 @@ lvim.builtin.terminal.shading_factor = 1
 lvim.keys.normal_mode["<C-a>"] = ":ToggleTermToggleAll<cr>"
 lvim.keys.term_mode["<C-a>"] = "<cmd>ToggleTermToggleAll<cr>"
 
-lvim.builtin.bufferline.active = false
-lvim.builtin.lualine.active = false
-
 vim.o.relativenumber = true
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
@@ -29,6 +26,7 @@ lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
+lvim.builtin.nvimtree.relativenumber = true
 
 lvim.lsp.diagnostics.virtual_text = false
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
@@ -114,5 +112,5 @@ lvim.plugins = {
 		end,
 	},
 	{ "godlygeek/tabular" },
-	{ "plasticboy/vim-markdown" },
+	{ "plasticboy/vim-markdown" }
 }
