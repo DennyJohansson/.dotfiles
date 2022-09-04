@@ -14,7 +14,7 @@ vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 vim.o.foldlevel = 99
 lvim.keys.normal_mode["<C-d>"] = "<C-d> zz"
 lvim.keys.normal_mode["<C-u>"] = "<C-u> zz"
-lvim.keys.normal_mode["<leader>e"] = ":E<CR>"
+lvim.keys.normal_mode["<leader>e"] = ":Ex<CR>"
 -- lvim.keys.normal_mode["<C-h>"] = ":BufferLineCycleNext<CR>"
 -- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
 -- harpoon
