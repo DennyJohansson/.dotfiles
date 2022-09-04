@@ -1,1 +1,1 @@
--- hej
+require("dempad")
