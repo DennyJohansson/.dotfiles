@@ -20,7 +20,6 @@ nnoremap("<C-d>", "<C-d>zz")
 nnoremap("<C-u>", "<C-u>zz")
 -- greatest remap ever
 xnoremap("<leader>p", "\"_dP")
-
 -- next greatest remap ever : asbjornHaland
 nnoremap("<leader>y", "\"+y")
 vnoremap("<leader>y", "\"+y")
@@ -46,3 +45,8 @@ nnoremap("<leader>j", "<cmd>lprev<CR>zz")
 
 nnoremap("<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 nnoremap("<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
+nnoremap("<leader>+tn", function() require("jester").run() end, { silent = true })
+nnoremap("<leader>+tf", function() require("jester").run_file() end, { silent = true })
+
+nnoremap("<leader>+n", ":Note")

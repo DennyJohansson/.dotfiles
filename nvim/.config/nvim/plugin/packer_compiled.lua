@@ -114,6 +114,11 @@ _G.packer_plugins = {
     path = "/Users/tempdejon/.local/share/nvim/site/pack/packer/start/harpoon",
     url = "https://github.com/ThePrimeagen/harpoon"
   },
+  jester = {
+    loaded = true,
+    path = "/Users/tempdejon/.local/share/nvim/site/pack/packer/start/jester",
+    url = "https://github.com/david-Kunz/jester"
+  },
   ["lsp_extensions.nvim"] = {
     loaded = true,
     path = "/Users/tempdejon/.local/share/nvim/site/pack/packer/start/lsp_extensions.nvim",
@@ -133,6 +138,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tempdejon/.local/share/nvim/site/pack/packer/start/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
+  },
+  ["markdown-preview.nvim"] = {
+    loaded = true,
+    path = "/Users/tempdejon/.local/share/nvim/site/pack/packer/start/markdown-preview.nvim",
+    url = "https://github.com/iamcco/markdown-preview.nvim"
   },
   neoformat = {
     loaded = true,
@@ -190,6 +200,12 @@ _G.packer_plugins = {
     path = "/Users/tempdejon/.local/share/nvim/site/pack/packer/start/popup.nvim",
     url = "https://github.com/nvim-lua/popup.nvim"
   },
+  ["rest.nvim"] = {
+    config = { "\27LJ\2\n>\0\1\5\0\4\0\0066\1\0\0009\1\1\0019\1\2\0015\3\3\0\18\4\0\0D\1\3\0\1\5\0\0\ttidy\a-i\a-q\6-\vsystem\afn\bvimâ\2\1\0\6\0\r\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0005\4\a\0003\5\b\0=\5\t\4=\4\n\3=\3\v\0024\3\0\0=\3\f\2B\0\2\1K\0\1\0\29custom_dynamic_variables\vresult\15formatters\thtml\0\1\0\1\tjson\ajq\1\0\3\17show_headers\2\19show_http_info\2\rshow_url\2\14highlight\1\0\2\ftimeout\3–\1\fenabled\2\1\0\6\17yank_dry_run\2\26result_split_in_place\1\28result_split_horizontal\1\20jump_to_request\1\26skip_ssl_verification\1\renv_file\t.env\nsetup\14rest-nvim\frequire\0" },
+    loaded = true,
+    path = "/Users/tempdejon/.local/share/nvim/site/pack/packer/start/rest.nvim",
+    url = "https://github.com/NTBBloodbath/rest.nvim"
+  },
   ["symbols-outline.nvim"] = {
     loaded = true,
     path = "/Users/tempdejon/.local/share/nvim/site/pack/packer/start/symbols-outline.nvim",
@@ -209,10 +225,19 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/tempdejon/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
+  },
+  ["vim-unimpaired"] = {
+    loaded = true,
+    path = "/Users/tempdejon/.local/share/nvim/site/pack/packer/start/vim-unimpaired",
+    url = "https://github.com/tpope/vim-unimpaired"
   }
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: rest.nvim
+time([[Config for rest.nvim]], true)
+try_loadstring("\27LJ\2\n>\0\1\5\0\4\0\0066\1\0\0009\1\1\0019\1\2\0015\3\3\0\18\4\0\0D\1\3\0\1\5\0\0\ttidy\a-i\a-q\6-\vsystem\afn\bvimâ\2\1\0\6\0\r\0\0176\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0005\3\4\0=\3\5\0025\3\6\0005\4\a\0003\5\b\0=\5\t\4=\4\n\3=\3\v\0024\3\0\0=\3\f\2B\0\2\1K\0\1\0\29custom_dynamic_variables\vresult\15formatters\thtml\0\1\0\1\tjson\ajq\1\0\3\17show_headers\2\19show_http_info\2\rshow_url\2\14highlight\1\0\2\ftimeout\3–\1\fenabled\2\1\0\6\17yank_dry_run\2\26result_split_in_place\1\28result_split_horizontal\1\20jump_to_request\1\26skip_ssl_verification\1\renv_file\t.env\nsetup\14rest-nvim\frequire\0", "config", "rest.nvim")
+time([[Config for rest.nvim]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

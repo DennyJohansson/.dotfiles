@@ -1,33 +1,50 @@
--- auto pair, tree, zz, harpoon, tabs
 lvim.format_on_save = false
 -- lvim.lint_on_save = true
 lvim.colorscheme = "tokyonight"
 -- vim.o.background = "light" -- or "light" for light mode lvim.leader = "space" -- add your own keymapping
 -- lvim.keys.normal_mode["<C-s>"] = ":w<cr>" lvim.builtin.terminal.direction = "horizontal"
--- lvim.builtin.terminal.shading_factor = 1
--- lvim.keys.normal_mode["<C-a>"] = ":ToggleTermToggleAll<cr>"
--- lvim.keys.term_mode["<C-a>"] = "<cmd>ToggleTermToggleAll<cr>"
--- lvim.keys.normal_mode["<C-r>"] = "<Plug>RestNvim"
+lvim.keys.normal_mode["<C-a>"] = ":ToggleTermToggleAll<cr>"
+lvim.keys.term_mode["<C-a>"] = "<cmd>ToggleTermToggleAll<cr>"
+lvim.keys.normal_mode["<C-r>"] = "<Plug>RestNvim"
+
 vim.o.relativenumber = true
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 vim.o.foldlevel = 99
+
 lvim.keys.normal_mode["<C-d>"] = "<C-d> zz"
 lvim.keys.normal_mode["<C-u>"] = "<C-u> zz"
-lvim.keys.normal_mode["<leader>e"] = ":Ex<CR>"
--- lvim.keys.normal_mode["<C-h>"] = ":BufferLineCycleNext<CR>"
--- lvim.keys.normal_mode["<S-h>"] = ":BufferLineCyclePrev<CR>"
+
+lvim.builtin.which_key.mappings["e"] = { "<cmd>Ex<CR>", "Explore" }
+
+-- git
+lvim.builtin.which_key.mappings["g"] = {
+  name = "git worktree",
+  w =  { ":lua require'telescope'.extensions.git_worktree.create_git_worktree()<CR>", "create worktree" },
+  m =  { ":lua require'telescope'.extensions.git_worktree.git_worktrees()<CR>", "modify worktree" },
+  s = { ":lua require'neogit'.open()<CR>", "open neogit" },
+  a = { "<cmd>!git fetch --all<CR>", "fetch all" },
+  n = { ":Gvdiffsplit!<CR>", "diff split" },
+  h = { ":diffget //2<CR>", "diff get 2" },
+  l = { ":diffget //3<CR>", "diff get 3" },
+}
+
 -- harpoon
-lvim.keys.normal_mode["<leader>a"] = ":lua require('harpoon.mark').add_file()<CR>"
+lvim.builtin.which_key.mappings["a"] = { ":lua require('harpoon.mark').add_file()<CR>", "Harpoon mark" }
 lvim.keys.normal_mode["<C-e>"] = ":lua require('harpoon.ui').toggle_quick_menu()<CR>"
 lvim.keys.normal_mode["<C-h>"] = ":lua require('harpoon.ui').nav_file(1)<CR>"
 lvim.keys.normal_mode["<C-j>"] = ":lua require('harpoon.ui').nav_file(2)<CR>"
 lvim.keys.normal_mode["<C-k>"] = ":lua require('harpoon.ui').nav_file(3)<CR>"
 lvim.keys.normal_mode["<C-l>"] = ":lua require('harpoon.ui').nav_file(4)<CR>"
+
+lvim.builtin.which_key.mappings["u"] = { ":UndotreeShow<CR>", "show Undotree" }
+lvim.builtin.which_key.mappings["s"] = { ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", "search and replace" }
+
 -- netrw
 vim.g.netrw_liststyle = 2
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
+
 -- markdown
 vim.g["notes_smart_quotes"] = 0
 vim.g["notes_conceal_italic"] = 0
@@ -38,10 +55,12 @@ vim.g["vim_markdown_conceal"] = 0
 vim.g["tex_conceal"] = 1
 vim.g["vim_markdown_math"] = 1
 
+-- builtin
+lvim.builtin.terminal.shading_factor = 1
 lvim.builtin.alpha.active = true
 lvim.builtin.alpha.mode = "dashboard"
 lvim.builtin.notify.active = true
-lvim.builtin.terminal.active = false
+lvim.builtin.terminal.active = true
 -- lvim.builtin.nvimtree.setup.view.relativenumber = true
 lvim.builtin.nvimtree._setup_called = false
 lvim.builtin.nvimtree.active = false
@@ -53,7 +72,7 @@ lvim.builtin.treesitter.ensure_installed = {
 	"http",
 }
 
-lvim.lsp.diagnostics.virtual_text = false
+-- lvim.lsp.diagnostics.virtual_text = false
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 lvim.builtin.telescope.on_config_done = function()
 	local actions = require("telescope.actions")
@@ -79,10 +98,7 @@ lvim.builtin.which_key.mappings["P"] = { "<cmd>Telescope projects<CR>", "Project
 lvim.keys.visual_mode["J"] = ":m '>+1<CR>gv=gv"
 lvim.keys.visual_mode["K"] = ":m '<-2<CR>gv=gv"
 
--- Gdiff
-lvim.keys.normal_mode["gdh"] = ":diffget //2<CR>"
-lvim.keys.normal_mode["gdl"] = ":diffget //3<CR>"
-
+-- format
 local formatters = require("lvim.lsp.null-ls.formatters")
 
 formatters.setup({
@@ -110,10 +126,10 @@ linters.setup({
 
 local parser_configs = require("nvim-treesitter.parsers").get_parser_configs()
 parser_configs.hcl = {
-  filetype = "hcl", "terraform",
+	filetype = "hcl",
+	"terraform",
 }
--- call mkdp#util#install()
--- Additional Plugins
+
 lvim.plugins = {
 	{ "lunarvim/colorschemes" },
 	{ "folke/tokyonight.nvim" },
@@ -125,22 +141,29 @@ lvim.plugins = {
 		end,
 		event = "BufRead",
 	},
+	{ "TimUntersberger/neogit" },
+	{
+		"tzachar/cmp-tabnine",
+		run = "./install.sh",
+		requires = "hrsh7th/nvim-cmp",
+		event = "InsertEnter",
+	},
 	{ "tpope/vim-unimpaired" },
 	{ "david-Kunz/jester" },
 	{ "folke/lsp-colors.nvim" },
 	{ "xolox/vim-misc" },
 	{ "xolox/vim-notes" },
-	{
-		"tpope/vim-fugitive",
-	},
-	-- { "tpope/vim-surround" },
+	-- {
+	-- 	"tpope/vim-fugitive",
+	-- },
+  { "mbbill/undotree" },
 	{
 		"iamcco/markdown-preview.nvim",
 		run = function()
 			vim.fn["mkdp#util#install"]()
 		end,
 	},
-	-- { "godlygeek/tabular" },
+  { "ThePrimeagen/git-worktree.nvim" },
 	{
 		"ThePrimeagen/harpoon",
 		config = function()
