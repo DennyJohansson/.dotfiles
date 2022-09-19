@@ -35,7 +35,7 @@ inoremap("<C-c>", "<Esc>")
 
 nnoremap("Q", "<nop>")
 nnoremap("<leader>f", function()
-    vim.lsp.buf.format()
+    vim.lsp.buf.formatting_sync()
 end)
 
 nnoremap("<C-k>", "<cmd>cnext<CR>zz")

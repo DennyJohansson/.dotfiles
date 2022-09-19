@@ -1,6 +1,4 @@
-lvim.format_on_save = false
--- lvim.lint_on_save = true
-lvim.colorscheme = "tokyonight"
+lvim.colorscheme = "catppuccin"
 -- vim.o.background = "light" -- or "light" for light mode lvim.leader = "space" -- add your own keymapping
 -- lvim.keys.normal_mode["<C-s>"] = ":w<cr>" lvim.builtin.terminal.direction = "horizontal"
 lvim.keys.normal_mode["<C-a>"] = ":ToggleTermToggleAll<cr>"
@@ -11,22 +9,33 @@ vim.o.relativenumber = true
 vim.o.foldmethod = "expr"
 vim.o.foldexpr = "nvim_treesitter#foldexpr()"
 vim.o.foldlevel = 99
+-- vim.o.clipboard = ""
+vim.o.mouse = ""
+-- vim.opt.cmdheight = 1
+vim.o.conceallevel = 1
 
 lvim.keys.normal_mode["<C-d>"] = "<C-d> zz"
 lvim.keys.normal_mode["<C-u>"] = "<C-u> zz"
 
+-- lvim.keys.normal_mode["y"] = '"+y'
+-- lvim.keys.normal_mode["Y"] = '"+Y'
+-- lvim.keys.visual_mode["y"] = '"+y'
+-- lvim.keys.normal_mode["d"] = '"_d'
+-- lvim.keys.visual_mode["d"] = '"_d'
+
 lvim.builtin.which_key.mappings["e"] = { "<cmd>Ex<CR>", "Explore" }
+lvim.builtin.which_key.mappings["b"] = { "<cmd>Telescope buffers<cr>", "Find" }
 
 -- git
 lvim.builtin.which_key.mappings["g"] = {
-  name = "git worktree",
-  w =  { ":lua require'telescope'.extensions.git_worktree.create_git_worktree()<CR>", "create worktree" },
-  m =  { ":lua require'telescope'.extensions.git_worktree.git_worktrees()<CR>", "modify worktree" },
-  s = { ":lua require'neogit'.open()<CR>", "open neogit" },
-  a = { "<cmd>!git fetch --all<CR>", "fetch all" },
-  n = { ":Gvdiffsplit!<CR>", "diff split" },
-  h = { ":diffget //2<CR>", "diff get 2" },
-  l = { ":diffget //3<CR>", "diff get 3" },
+	name = "git worktree",
+	w = { ":lua require'telescope'.extensions.git_worktree.create_git_worktree()<CR>", "create worktree" },
+	m = { ":lua require'telescope'.extensions.git_worktree.git_worktrees()<CR>", "modify worktree" },
+	s = { ":lua require'neogit'.open()<CR>", "open neogit" },
+	a = { "<cmd>!git fetch --all<CR>", "fetch all" },
+	n = { ":Gvdiffsplit!<CR>", "diff split" },
+	h = { ":diffget //2<CR>", "diff get 2" },
+	l = { ":diffget //3<CR>", "diff get 3" },
 }
 
 -- harpoon
@@ -38,7 +47,7 @@ lvim.keys.normal_mode["<C-k>"] = ":lua require('harpoon.ui').nav_file(3)<CR>"
 lvim.keys.normal_mode["<C-l>"] = ":lua require('harpoon.ui').nav_file(4)<CR>"
 
 lvim.builtin.which_key.mappings["u"] = { ":UndotreeShow<CR>", "show Undotree" }
-lvim.builtin.which_key.mappings["s"] = { ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", "search and replace" }
+-- lvim.builtin.which_key.mappings["s"] = { ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>", "search and replace" }
 
 -- netrw
 vim.g.netrw_liststyle = 2
@@ -54,7 +63,6 @@ vim.g["notes_conceal_code"] = 0
 vim.g["vim_markdown_conceal"] = 0
 vim.g["tex_conceal"] = 1
 vim.g["vim_markdown_math"] = 1
-
 -- builtin
 lvim.builtin.terminal.shading_factor = 1
 lvim.builtin.alpha.active = true
@@ -63,8 +71,10 @@ lvim.builtin.notify.active = true
 lvim.builtin.terminal.active = true
 -- lvim.builtin.nvimtree.setup.view.relativenumber = true
 lvim.builtin.nvimtree._setup_called = false
+lvim.builtin.notify.active = false
 lvim.builtin.nvimtree.active = false
 lvim.builtin.bufferline.active = false
+lvim.builtin.which_key.setup.show_help = false
 vim.opt.showtabline = 0
 lvim.builtin.autopairs.active = false
 lvim.builtin.treesitter.ensure_installed = {
@@ -132,8 +142,11 @@ parser_configs.hcl = {
 
 lvim.plugins = {
 	{ "lunarvim/colorschemes" },
-	{ "folke/tokyonight.nvim" },
-	{ "ayu-theme/ayu-vim" },
+	-- { "jacoborus/tender.vim" },
+	-- { "folke/tokyonight.nvim" },
+	-- { "gruvbox-community/gruvbox" },
+	{ "catppuccin/nvim" },
+	-- { "ayu-theme/ayu-vim" },
 	{
 		"ray-x/lsp_signature.nvim",
 		config = function()
@@ -146,7 +159,6 @@ lvim.plugins = {
 		"tzachar/cmp-tabnine",
 		run = "./install.sh",
 		requires = "hrsh7th/nvim-cmp",
-		event = "InsertEnter",
 	},
 	{ "tpope/vim-unimpaired" },
 	{ "david-Kunz/jester" },
@@ -156,14 +168,14 @@ lvim.plugins = {
 	-- {
 	-- 	"tpope/vim-fugitive",
 	-- },
-  { "mbbill/undotree" },
+	{ "mbbill/undotree" },
 	{
 		"iamcco/markdown-preview.nvim",
 		run = function()
 			vim.fn["mkdp#util#install"]()
 		end,
 	},
-  { "ThePrimeagen/git-worktree.nvim" },
+	{ "ThePrimeagen/git-worktree.nvim" },
 	{
 		"ThePrimeagen/harpoon",
 		config = function()
