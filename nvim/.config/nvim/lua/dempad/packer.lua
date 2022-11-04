@@ -58,7 +58,6 @@ return require("packer").startup(function()
 			vim.fn["mkdp#util#install"]()
 		end,
 	})
-	use({ "tpope/vim-unimpaired" })
 	use({ "david-Kunz/jester" })
 	use({ "xolox/vim-misc" })
 	use({ "xolox/vim-notes" })

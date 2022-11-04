@@ -4,6 +4,7 @@ local nnoremap = Remap.nnoremap
 local vnoremap = Remap.vnoremap
 local inoremap = Remap.inoremap
 local xnoremap = Remap.xnoremap
+local tnoremap = Remap.tnoremap
 local nmap = Remap.nmap
 
 nnoremap("<leader>pv", ":Ex<CR>")
@@ -46,7 +47,4 @@ nnoremap("<leader>j", "<cmd>lprev<CR>zz")
 nnoremap("<leader>s", ":%s/\\<<C-r><C-w>\\>/<C-r><C-w>/gI<Left><Left><Left>")
 nnoremap("<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
 
-nnoremap("<leader>+tn", function() require("jester").run() end, { silent = true })
-nnoremap("<leader>+tf", function() require("jester").run_file() end, { silent = true })
-
-nnoremap("<leader>+n", ":Note")
+nnoremap("<leader>n", ":Note")

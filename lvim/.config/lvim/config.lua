@@ -3,7 +3,6 @@ lvim.colorscheme = "catppuccin"
 -- lvim.keys.normal_mode["<C-s>"] = ":w<cr>" lvim.builtin.terminal.direction = "horizontal"
 lvim.keys.normal_mode["<C-a>"] = ":ToggleTermToggleAll<cr>"
 lvim.keys.term_mode["<C-a>"] = "<cmd>ToggleTermToggleAll<cr>"
-lvim.keys.normal_mode["<C-r>"] = "<Plug>RestNvim"
 
 vim.o.relativenumber = true
 vim.o.foldmethod = "expr"
