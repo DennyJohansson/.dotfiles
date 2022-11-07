@@ -1,4 +1,4 @@
-return require("packer").startup(function()
+return require("packer").startup(function(use)
 	use("wbthomason/packer.nvim")
 	-- use("sbdchd/neoformat")
  	use("jose-elias-alvarez/null-ls.nvim")
@@ -58,6 +58,7 @@ return require("packer").startup(function()
 			vim.fn["mkdp#util#install"]()
 		end,
 	})
+	use({ "tpope/vim-unimpaired" })
 	use({ "david-Kunz/jester" })
 	use({ "xolox/vim-misc" })
 	use({ "xolox/vim-notes" })

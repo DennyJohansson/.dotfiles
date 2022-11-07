@@ -93,7 +93,7 @@ local function config(_config)
         on_attach = function(client)
 
             if client.name == "tsserver" then
-                client.resolved_capabilities.document_formatting = false
+                client.server_capabilities.documentFormattingProvider = false
             end
 
             nnoremap("gd", function() vim.lsp.buf.definition() end)
