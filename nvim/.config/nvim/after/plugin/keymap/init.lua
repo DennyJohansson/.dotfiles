@@ -4,7 +4,7 @@ local nnoremap = Remap.nnoremap
 local vnoremap = Remap.vnoremap
 local inoremap = Remap.inoremap
 local xnoremap = Remap.xnoremap
-local tnoremap = Remap.tnoremap
+-- local tnoremap = Remap.tnoremap
 local nmap = Remap.nmap
 
 nnoremap("<leader>pv", ":Ex<CR>")
@@ -36,11 +36,11 @@ inoremap("<C-c>", "<Esc>")
 
 nnoremap("Q", "<nop>")
 nnoremap("<leader>f", function()
-    vim.lsp.buf.formatting_sync()
+    vim.lsp.buf.format()
 end)
 
-nnoremap("<C-k>", "<cmd>cnext<CR>zz")
-nnoremap("<C-j>", "<cmd>cprev<CR>zz")
+nnoremap("<C-n>", "<cmd>cnext<CR>zz")
+nnoremap("<C-p>", "<cmd>cprev<CR>zz")
 nnoremap("<leader>k", "<cmd>lnext<CR>zz")
 nnoremap("<leader>j", "<cmd>lprev<CR>zz")
 

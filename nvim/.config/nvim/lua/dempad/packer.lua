@@ -5,6 +5,7 @@ return require("packer").startup(function(use)
 
 	-- Simple plugins can be specified as strings
 	use("TimUntersberger/neogit")
+  use("samoshkin/vim-mergetool")
 
 	-- TJ created lodash of neovim
 	use("nvim-lua/plenary.nvim")
@@ -27,7 +28,6 @@ return require("packer").startup(function(use)
 		run = "./install.sh",
 		requires = "hrsh7th/nvim-cmp",
 	})
-
 	use("onsails/lspkind-nvim")
 	use("nvim-lua/lsp_extensions.nvim")
 	use("glepnir/lspsaga.nvim")

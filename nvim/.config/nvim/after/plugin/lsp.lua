@@ -148,8 +148,30 @@ require("lspconfig").gopls.setup(config({
 }))
 
 -- who even uses this?
+-- cmd = { "rustup", "run", "nightly", "rust-analyzer" },
+--
+
 require("lspconfig").rust_analyzer.setup(config({
-    cmd = { "rustup", "run", "nightly", "rust-analyzer" },
+    cmd = { "rustup", "run", "stable", "rust-analyzer" },
+    settings = {
+        ["rust-analyzer"] = {
+            imports = {
+                granularity = {
+                    group = "module",
+                },
+                prefix = "self",
+            },
+            cargo = {
+                buildScripts = {
+                    enable = true,
+                },
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }
+}))
     --[[
     settings = {
         rust = {
@@ -159,7 +181,7 @@ require("lspconfig").rust_analyzer.setup(config({
         },
     }
     --]]
-}))
+
 
 require("lspconfig").sumneko_lua.setup(config({
     settings = {
