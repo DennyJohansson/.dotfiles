@@ -39,6 +39,7 @@ nnoremap("<leader>f", function()
     vim.lsp.buf.format()
 end)
 
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 nnoremap("<C-n>", "<cmd>cnext<CR>zz")
 nnoremap("<C-p>", "<cmd>cprev<CR>zz")
 nnoremap("<leader>k", "<cmd>lnext<CR>zz")
