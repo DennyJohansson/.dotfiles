@@ -13,13 +13,13 @@ null_ls.setup({
 		formatting.stylua.with({
       filetype = "lua",
     }),
-		formatting.eslint_d.with({
+		formatting.eslint.with({
 			arg = { "--stdin --fix-to-stdout" },
 			filetype = { "typescript", "typescriptreact", "javascript" },
 		}),
 		--        formatting.prettier,
 		--        diagnostics.prettier,
-		diagnostics.eslint_d,
+		diagnostics.eslint,
 		-- diagnostics.stylua,
 	},
 })

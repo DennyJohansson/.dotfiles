@@ -33,7 +33,7 @@ vim.opt.cmdheight = 1
 
 -- delays and poor user experience.
 -- Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
-vim.opt.updatetime = 25
+vim.opt.updatetime = 50
 
 -- Don't pass messages to |ins-completion-menu|.
 vim.opt.shortmess:append("c")
@@ -45,8 +45,4 @@ vim.g.mapleader = " "
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
-
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
-vim.opt.foldenable = false
-vim.opt.foldlevel = 99
+-- vim.cmd("colorscheme rose-pine")

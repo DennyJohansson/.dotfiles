@@ -35,6 +35,7 @@ vnoremap("<leader>d", "\"_d")
 inoremap("<C-c>", "<Esc>")
 
 nnoremap("Q", "<nop>")
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 nnoremap("<leader>f", function()
     vim.lsp.buf.format()
 end)
