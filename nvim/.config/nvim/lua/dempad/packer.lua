@@ -60,7 +60,8 @@ return require("packer").startup(function(use)
 
   use("nvim-treesitter/playground")
   use("romgrk/nvim-treesitter-context")
-
+  use("folke/zen-mode.nvim")
+  use("github/copilot.vim")
   use({
     "iamcco/markdown-preview.nvim",
     run = function()
