@@ -1,7 +1,7 @@
 return require("packer").startup(function(use)
   use("wbthomason/packer.nvim")
   -- use("sbdchd/neoformat")
-  -- use("jose-elias-alvarez/null-ls.nvim")
+  use("jose-elias-alvarez/null-ls.nvim")
 
   -- Simple plugins can be specified as strings
   use("TimUntersberger/neogit")
