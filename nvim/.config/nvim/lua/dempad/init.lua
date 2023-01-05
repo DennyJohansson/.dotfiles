@@ -1,5 +1,3 @@
-require("dempad.neogit")
-require("dempad.jester")
 require("dempad.set")
 require("dempad.packer")
 require("dempad.telescope")

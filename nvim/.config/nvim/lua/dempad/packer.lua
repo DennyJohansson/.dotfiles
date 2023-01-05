@@ -15,13 +15,23 @@ return require("packer").startup(function(use)
     "nvim-lualine/lualine.nvim",
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
   })
-  use({
-    "rose-pine/neovim",
-    as = "rose-pine",
+  -- Colorscheme section
+  -- use("gruvbox-community/gruvbox")
+  -- use("folke/tokyonight.nvim")
+  use({ "ellisonleao/gruvbox.nvim",
+    as = "gruvbox",
     config = function()
-      vim.cmd("colorscheme rose-pine")
+      vim.cmd("colorscheme gruvbox")
     end,
   })
+
+  -- use({
+  --   "rose-pine/neovim",
+  --   as = "rose-pine",
+  --   config = function()
+  --     vim.cmd("colorscheme rose-pine")
+  --   end,
+  -- })
 
   use({
     "VonHeikemen/lsp-zero.nvim",
@@ -50,10 +60,6 @@ return require("packer").startup(function(use)
 
   use("mbbill/undotree")
 
-  -- Colorscheme section
-  -- use("gruvbox-community/gruvbox")
-  -- use("folke/tokyonight.nvim")
-
   use("nvim-treesitter/nvim-treesitter", {
     run = ":TSUpdate",
   })
@@ -68,8 +74,8 @@ return require("packer").startup(function(use)
       vim.fn["mkdp#util#install"]()
     end,
   })
+  use({ 'mattkubej/jest.nvim' })
   use({ "tpope/vim-unimpaired" })
-  use({ "david-Kunz/jester" })
   use({ "xolox/vim-misc" })
   use({ "xolox/vim-notes" })
   use({

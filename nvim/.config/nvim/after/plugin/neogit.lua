@@ -1,3 +1,4 @@
+
 local neogit = require('neogit')
 local nnoremap = require('dempad.keymap').nnoremap
 
