@@ -1,11 +1,9 @@
-
 local neogit = require('neogit')
-local nnoremap = require('dempad.keymap').nnoremap
 
 neogit.setup {}
 
-nnoremap("<leader>gs", function()
-    neogit.open({ })
+vim.keymap.set("n", "<leader>gs", function()
+  neogit.open({})
 end);
 
-nnoremap("<leader>ga", "<cmd>!git fetch --all<CR>");
+vim.keymap.set("n", "<leader>ga", "<cmd>!git fetch --all<CR>");
