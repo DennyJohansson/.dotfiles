@@ -160,11 +160,6 @@ _G.packer_plugins = {
     path = "/Users/tempdejon/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
-  neogit = {
-    loaded = true,
-    path = "/Users/tempdejon/.local/share/nvim/site/pack/packer/start/neogit",
-    url = "https://github.com/TimUntersberger/neogit"
-  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/Users/tempdejon/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
@@ -231,10 +226,10 @@ _G.packer_plugins = {
     path = "/Users/tempdejon/.local/share/nvim/site/pack/packer/start/undotree",
     url = "https://github.com/mbbill/undotree"
   },
-  ["vim-mergetool"] = {
+  ["vim-fugitive"] = {
     loaded = true,
-    path = "/Users/tempdejon/.local/share/nvim/site/pack/packer/start/vim-mergetool",
-    url = "https://github.com/samoshkin/vim-mergetool"
+    path = "/Users/tempdejon/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
   },
   ["vim-misc"] = {
     loaded = true,

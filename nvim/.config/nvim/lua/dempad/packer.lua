@@ -1,11 +1,10 @@
 return require("packer").startup(function(use)
   use("wbthomason/packer.nvim")
-  -- use("sbdchd/neoformat")
   use("jose-elias-alvarez/null-ls.nvim")
 
-  -- use('tpope/vim-fugitive')
-  use("TimUntersberger/neogit")
-  use("samoshkin/vim-mergetool")
+  use('tpope/vim-fugitive')
+  -- use("TimUntersberger/neogit")
+  -- use("samoshkin/vim-mergetool")
 
   use("nvim-lua/plenary.nvim")
   use("nvim-lua/popup.nvim")
