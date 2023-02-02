@@ -19,7 +19,7 @@ vim.keymap.set("n", "<leader>vh", function()
 end)
 
 vim.keymap.set("n", "<leader>gc", function()
-  require("dempad.telescope").git_branches()
+  require("telescope.builtin").git_branches()
 end)
 
 vim.keymap.set("n", "<leader>gw", function()
@@ -29,3 +29,5 @@ end)
 vim.keymap.set("n", "<leader>gm", function()
   require("telescope").extensions.git_worktree.create_git_worktree()
 end)
+
+-- add git changed files

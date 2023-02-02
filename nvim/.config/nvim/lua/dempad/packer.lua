@@ -3,6 +3,7 @@ return require("packer").startup(function(use)
   use("jose-elias-alvarez/null-ls.nvim")
 
   use('tpope/vim-fugitive')
+  use('idanarye/vim-merginal')
   -- use("TimUntersberger/neogit")
   -- use("samoshkin/vim-mergetool")
 
@@ -15,12 +16,15 @@ return require("packer").startup(function(use)
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
   })
 
-  use({ "ellisonleao/gruvbox.nvim",
-    as = "gruvbox",
-    config = function()
-      vim.cmd("colorscheme gruvbox")
-    end,
-  })
+  --  use({ "ellisonleao/gruvbox.nvim",
+  --    as = "gruvbox",
+  --    config = function()
+  --      vim.cmd("colorscheme gruvbox")
+  --    end,
+  --  })
+
+  use('folke/tokyonight.nvim')
+  -- use("rebelot/kanagawa.nvim")
 
   use({
     "VonHeikemen/lsp-zero.nvim",
@@ -71,4 +75,5 @@ return require("packer").startup(function(use)
     "NTBBloodbath/rest.nvim",
     requires = { "nvim-lua/plenary.nvim" },
   })
+  use({ "godlygeek/tabular" })
 end)
