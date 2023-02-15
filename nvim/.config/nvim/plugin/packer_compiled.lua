@@ -129,6 +129,11 @@ _G.packer_plugins = {
     path = "/Users/tempdejon/.local/share/nvim/site/pack/packer/start/jest.nvim",
     url = "https://github.com/mattkubej/jest.nvim"
   },
+  ["kanagawa.nvim"] = {
+    loaded = true,
+    path = "/Users/tempdejon/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
+    url = "https://github.com/rebelot/kanagawa.nvim"
+  },
   ["lsp-zero.nvim"] = {
     loaded = true,
     path = "/Users/tempdejon/.local/share/nvim/site/pack/packer/start/lsp-zero.nvim",

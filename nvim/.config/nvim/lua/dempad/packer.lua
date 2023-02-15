@@ -24,7 +24,7 @@ return require("packer").startup(function(use)
   --  })
 
   use('folke/tokyonight.nvim')
-  -- use("rebelot/kanagawa.nvim")
+  use("rebelot/kanagawa.nvim")
 
   use({
     "VonHeikemen/lsp-zero.nvim",
