@@ -4,8 +4,6 @@ lsp.preset("recommended")
 
 lsp.ensure_installed({
   'tsserver',
-  'eslint',
-  'sumneko_lua',
   'rust_analyzer',
 })
 
@@ -19,7 +17,6 @@ lsp.configure('sumneko_lua', {
         }
     }
 })
-
 
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
@@ -63,6 +60,7 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>lrn", vim.lsp.buf.rename, opts)
   vim.keymap.set("n", "<leader>lh", vim.lsp.buf.signature_help, opts)
   vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+
 end)
 
 lsp.setup()
