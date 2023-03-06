@@ -9,3 +9,8 @@
 ## Nerd Fonts
 
 `VictorMono Nerd Font Mono`
+
+
+## Req..
+
+- deno

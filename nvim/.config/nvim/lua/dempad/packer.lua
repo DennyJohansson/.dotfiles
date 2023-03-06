@@ -87,4 +87,7 @@ return require("packer").startup(function(use)
     requires = { "nvim-lua/plenary.nvim" },
   })
   use({ "godlygeek/tabular" })
+
+  use({ 'toppair/peek.nvim', run = 'deno task --quiet build:fast' })
+
 end)
