@@ -83,7 +83,7 @@ ZSH_THEME='cdimascio-lambda' #'powerlevel10k/powerlevel10k'
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # vi-mode
-plugins=(git zsh-z yarn fig) 
+plugins=(git yarn) 
 
 source $ZSH/oh-my-zsh.sh
 
@@ -124,20 +124,17 @@ export NVM_DIR="$HOME/.nvm"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/usr/local/sbin:$PATH"
+
 source ~/Git/dotfiles/.aliases
 source ~/Git/dotfiles/.functions
 source ~/.oh-my-zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 export PATH="/usr/local/lib/node_modules:/usr/local/opt/openjdk/bin:$PATH"
 # export PATH="./node_modules/.bin:$PATH"
-
-export NODE_EXTRA_CA_CERTS=~/certs/ZscalerRootCertificate-2048-SHA256.pem
-export DENO_CERT=~/certs/ZscalerRootCertificate-2048-SHA256.pem
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/tools/lua-language-server/bin/macOS:$PATH"
 export PATH="$HOME/.local/bin/scripts:$PATH"
-
-export NIX_SSL_CERT_FILE="/Users/tempdejon/Downloads/ZscalerRootCerts/ZscalerRootCertificate-2048-SHA256.pem"
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/tempdejon/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/tempdejon/Downloads/google-cloud-sdk/path.zsh.inc'; fi
@@ -152,10 +149,10 @@ export TERM=xterm-256color
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
-# Fig post block. Keep at the bottom of this file.
-[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
-
 # pnpm
 export PNPM_HOME="/Users/tempdejon/Library/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
+
+# Fig post block. Keep at the bottom of this file.
+[[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
