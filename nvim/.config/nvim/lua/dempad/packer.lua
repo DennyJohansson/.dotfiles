@@ -5,7 +5,6 @@ return require("packer").startup(function(use)
   use('tpope/vim-fugitive')
   use('idanarye/vim-merginal')
   -- use("TimUntersberger/neogit")
-  -- use("samoshkin/vim-mergetool")
 
   use("nvim-lua/plenary.nvim")
   use("nvim-lua/popup.nvim")
@@ -72,22 +71,16 @@ return require("packer").startup(function(use)
   use("romgrk/nvim-treesitter-context")
   use("folke/zen-mode.nvim")
   use("github/copilot.vim")
-  use({
-    "iamcco/markdown-preview.nvim",
-    run = function()
-      vim.fn["mkdp#util#install"]()
-    end,
-  })
   use({ 'mattkubej/jest.nvim' })
   use({ "tpope/vim-unimpaired" })
   use({ "xolox/vim-misc" })
-  use({ "xolox/vim-notes" })
+  -- use({ "xolox/vim-notes" })
   use({
     "NTBBloodbath/rest.nvim",
     requires = { "nvim-lua/plenary.nvim" },
   })
   use({ "godlygeek/tabular" })
-
+  use("mickael-menu/zk-nvim")
   use({ 'toppair/peek.nvim', run = 'deno task --quiet build:fast' })
 
 end)

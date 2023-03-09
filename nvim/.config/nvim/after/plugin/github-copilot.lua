@@ -4,3 +4,5 @@
 --   ["lua"] = false,
 --   ["rust"] = false,
 -- }
+--
+vim.g.copilot_filetypes = { markdown = true }
