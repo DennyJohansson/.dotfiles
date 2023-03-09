@@ -1,18 +1,12 @@
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/bin:/usr/local/bin:$HOME/Library/Python/2.7/bin:$HOME/.local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/tempdejon/.oh-my-zsh"
-
+export ZSH="$HOME/.oh-my-zsh"
 # ZScaler
 # export NODE_EXTRA_CA_CERTS="/Users/tempdejon/certs/ZscalerRootCerts/ZscalerRootCertificate-2048-SHA256.pem"
 
@@ -21,7 +15,7 @@ export ZSH="/Users/tempdejon/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME='cdimascio-lambda' #'powerlevel10k/powerlevel10k'
-
+# https://github.com/cdimascio/lambda-zsh-theme
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
 # a theme from this variable instead of looking in $ZSH/themes/
@@ -125,34 +119,17 @@ export NVM_DIR="$HOME/.nvm"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PATH="/usr/local/sbin:$PATH"
 
-source ~/Git/dotfiles/.aliases
-source ~/Git/dotfiles/.functions
-source ~/.oh-my-zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-export PATH="/usr/local/lib/node_modules:/usr/local/opt/openjdk/bin:$PATH"
-# export PATH="./node_modules/.bin:$PATH"
+# source ~/Git/dotfiles/.aliases
+# source ~/Git/dotfiles/.functions
+# source ~/.oh-my-zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/tools/lua-language-server/bin/macOS:$PATH"
 export PATH="$HOME/.local/bin/scripts:$PATH"
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/tempdejon/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/tempdejon/Downloads/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/tempdejon/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/tempdejon/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
-
 # Set nvim as default editor for Git CLI
 export EDITOR=nvim
 export TERM=xterm-256color
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
-# pnpm
-export PNPM_HOME="/Users/tempdejon/Library/pnpm"
-export PATH="$PNPM_HOME:$PATH"
-# pnpm end
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"
