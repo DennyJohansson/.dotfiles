@@ -1,3 +1,4 @@
+alias cl="clear"
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
 # Initialization code that may require console input (password prompts, [y/n]
