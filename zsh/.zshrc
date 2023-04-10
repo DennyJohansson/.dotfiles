@@ -1,6 +1,7 @@
-alias cl="clear"
 # Fig pre block. Keep at the top of this file.
 [[ -f "$HOME/.fig/shell/zshrc.pre.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.pre.zsh"
+alias cl="clear"
+alias pn="pnpm"
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 # If you come from bash you might have to change your $PATH.
@@ -131,6 +132,18 @@ export PATH="$HOME/.local/bin/scripts:$PATH"
 # Set nvim as default editor for Git CLI
 export EDITOR=nvim
 export TERM=xterm-256color
+
+
+# https://direnv.net/
+eval "$(direnv hook zsh)"
+
+# pnpm
+export PNPM_HOME="/Users/dennyjohansson/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
 
 # Fig post block. Keep at the bottom of this file.
 [[ -f "$HOME/.fig/shell/zshrc.post.zsh" ]] && builtin source "$HOME/.fig/shell/zshrc.post.zsh"

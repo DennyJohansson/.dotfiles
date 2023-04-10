@@ -3,7 +3,9 @@
 if [[ $# -eq 1 ]]; then
     selected=$1
 else
-    selected=$(find ~/workwork ~/.dotfiles ~/personal ~/personal/stuff ~/personal/rustland ~/workwork/fragments -mindepth 1 -maxdepth 1 -type d | fzf)
+ 
+export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+  selected=$(find ~/workwork ~/.dotfiles ~/Downloads/ ~/personal ~/personal/stuff ~/personal/rustland ~/workwork/fragments -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then

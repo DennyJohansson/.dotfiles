@@ -1,4 +1,5 @@
 local lsp = require("lsp-zero")
+local lspconfig = require("lspconfig")
 
 lsp.preset("recommended")
 
@@ -9,22 +10,22 @@ lsp.ensure_installed({
 
 -- Fix Undefined global 'vim'
 lsp.configure('sumneko_lua', {
-    settings = {
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' }
-            }
-        }
+  settings = {
+    Lua = {
+      diagnostics = {
+        globals = { 'vim' }
+      }
     }
+  }
 })
 
 local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
-  ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-  ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-  ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-  ["<C-Space>"] = cmp.mapping.complete(),
+      ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+      ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+      ['<C-y>'] = cmp.mapping.confirm({ select = true }),
+      ["<C-Space>"] = cmp.mapping.complete(),
 })
 
 -- disable completion with tab
@@ -37,17 +38,17 @@ lsp.setup_nvim_cmp({
 })
 
 lsp.set_preferences({
-    suggest_lsp_servers = false,
-    sign_icons = {
-        error = 'E',
-        warn = 'W',
-        hint = 'H',
-        info = 'I'
-    }
+  suggest_lsp_servers = false,
+  sign_icons = {
+    error = 'E',
+    warn = 'W',
+    hint = 'H',
+    info = 'I'
+  }
 })
 
 lsp.on_attach(function(client, bufnr)
-  local opts = {buffer = bufnr, remap = false}
+  local opts = { buffer = bufnr, remap = false }
 
   vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
   vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
@@ -60,11 +61,33 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>lrn", vim.lsp.buf.rename, opts)
   vim.keymap.set("n", "<leader>lh", vim.lsp.buf.signature_help, opts)
   vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
-
 end)
 
-lsp.setup()
+-- vim.diagnostic.config({
+--   virtual_text = true,
+-- })
+--
+-- lsp.configure('tsserver', {
+--   settings = {
+--     root_dir = lspconfig.util.root_pattern("package.json"),
+--     single_file_support = false
+--   }
+-- })
+--
+-- lsp.configure('denols', {
+--   settings = {
+--     root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+--   }
+-- })
 
-vim.diagnostic.config({
-    virtual_text = true,
-})
+lsp.setup()
+-- lsp.denols.setup {
+--   on_attach = lsp.on_attach,
+--   root_dir = lsp.util.root_pattern("deno.json", "deno.jsonc"),
+-- }
+--
+-- lsp.tsserver.setup {
+--   on_attach = lsp.on_attach,
+--   root_dir = lsp.util.root_pattern("package.json"),
+--   single_file_support = false
+-- }

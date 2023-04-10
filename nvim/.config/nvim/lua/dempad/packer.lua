@@ -29,6 +29,7 @@ return require("packer").startup(function(use)
         -- your configuration comes here
         -- or leave it empty to use the default settings
         -- refer to the configuration section below
+        icons = false,
       }
     end
   }
@@ -82,5 +83,5 @@ return require("packer").startup(function(use)
   use({ "godlygeek/tabular" })
   use("mickael-menu/zk-nvim")
   use({ 'toppair/peek.nvim', run = 'deno task --quiet build:fast' })
-
+  use({ 'findango/vim-mdx' })
 end)
