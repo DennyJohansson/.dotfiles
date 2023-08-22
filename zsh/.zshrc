@@ -41,7 +41,8 @@ export TERM=xterm-256color
 
 
 # https://direnv.net/
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
+source ~/.ignore.sh
 
 # pnpm
 export PNPM_HOME="/Users/dennyjohansson/Library/pnpm"
