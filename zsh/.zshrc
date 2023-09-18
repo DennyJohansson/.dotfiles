@@ -38,8 +38,6 @@ export PATH="$HOME/.local/bin/scripts:$PATH"
 export EDITOR=nvim
 export TERM=xterm-256color
 
-
-
 # https://direnv.net/
 # eval "$(direnv hook zsh)"
 source ~/.ignore.sh

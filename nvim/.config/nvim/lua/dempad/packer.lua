@@ -15,12 +15,13 @@ return require("packer").startup(function(use)
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
   })
 
-  --  use({ "ellisonleao/gruvbox.nvim",
-  --    as = "gruvbox",
-  --    config = function()
-  --      vim.cmd("colorscheme gruvbox")
-  --    end,
-  --  })
+  use({
+    "ellisonleao/gruvbox.nvim",
+    as = "gruvbox",
+    config = function()
+      vim.cmd("colorscheme gruvbox")
+    end,
+  })
   use {
     "folke/trouble.nvim",
     requires = "nvim-tree/nvim-web-devicons",
@@ -34,8 +35,8 @@ return require("packer").startup(function(use)
     end
   }
 
-  use('folke/tokyonight.nvim')
-  use("rebelot/kanagawa.nvim")
+  -- use('folke/tokyonight.nvim')
+  -- use("rebelot/kanagawa.nvim")
 
   use({
     "VonHeikemen/lsp-zero.nvim",
@@ -83,6 +84,10 @@ return require("packer").startup(function(use)
   use({ "godlygeek/tabular" })
   use("mickael-menu/zk-nvim")
   use({ 'findango/vim-mdx' })
-  use({ "iamcco/markdown-preview.nvim", run = "cd app && npm install",
-    setup = function() vim.g.mkdp_filetypes = { "markdown" } end, ft = { "markdown" }, })
+  use({
+    "iamcco/markdown-preview.nvim",
+    run = "cd app && npm install",
+    setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
+    ft = { "markdown" },
+  })
 end)
