@@ -119,12 +119,6 @@ _G.packer_plugins = {
     path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/git-worktree.nvim",
     url = "https://github.com/ThePrimeagen/git-worktree.nvim"
   },
-  gruvbox = {
-    config = { "\27LJ\2\n7\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\24colorscheme gruvbox\bcmd\bvim\0" },
-    loaded = true,
-    path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/gruvbox",
-    url = "https://github.com/ellisonleao/gruvbox.nvim"
-  },
   harpoon = {
     loaded = true,
     path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/harpoon",
@@ -171,6 +165,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/nvim-dap",
+    url = "https://github.com/mfussenegger/nvim-dap"
+  },
+  ["nvim-http"] = {
+    loaded = true,
+    path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/nvim-http",
+    url = "https://github.com/BlackLight/nvim-http"
   },
   ["nvim-lspconfig"] = {
     loaded = true,
@@ -228,6 +232,11 @@ _G.packer_plugins = {
     path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["tokyonight.nvim"] = {
+    loaded = true,
+    path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
+    url = "https://github.com/folke/tokyonight.nvim"
+  },
   ["trouble.nvim"] = {
     config = { "\27LJ\2\nC\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\nicons\1\nsetup\ftrouble\frequire\0" },
     loaded = true,
@@ -259,6 +268,11 @@ _G.packer_plugins = {
     path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/vim-misc",
     url = "https://github.com/xolox/vim-misc"
   },
+  ["vim-notes"] = {
+    loaded = true,
+    path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/vim-notes",
+    url = "https://github.com/xolox/vim-notes"
+  },
   ["vim-unimpaired"] = {
     loaded = true,
     path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/vim-unimpaired",
@@ -285,10 +299,6 @@ time([[Setup for markdown-preview.nvim]], false)
 time([[Config for trouble.nvim]], true)
 try_loadstring("\27LJ\2\nC\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\nicons\1\nsetup\ftrouble\frequire\0", "config", "trouble.nvim")
 time([[Config for trouble.nvim]], false)
--- Config for: gruvbox
-time([[Config for gruvbox]], true)
-try_loadstring("\27LJ\2\n7\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\24colorscheme gruvbox\bcmd\bvim\0", "config", "gruvbox")
-time([[Config for gruvbox]], false)
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads

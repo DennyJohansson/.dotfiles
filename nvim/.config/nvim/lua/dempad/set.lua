@@ -3,6 +3,8 @@ vim.opt.guicursor = ""
 vim.opt.nu = true
 vim.opt.relativenumber = true
 
+vim.g.netrw_bufsettings = "noma nomod nu nobl nowrap ro"
+
 vim.opt.errorbells = false
 
 vim.opt.tabstop = 2
@@ -45,3 +47,9 @@ vim.g.mapleader = " "
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
+
+vim.filetype.add({
+  extension = {
+    mdx = 'markdown',
+  }
+})

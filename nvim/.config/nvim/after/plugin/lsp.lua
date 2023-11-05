@@ -8,15 +8,7 @@ lsp.ensure_installed({
 })
 
 -- Fix Undefined global 'vim'
-lsp.configure('sumneko_lua', {
-  settings = {
-    Lua = {
-      diagnostics = {
-        globals = { 'vim' }
-      }
-    }
-  }
-})
+lsp.nvim_workspace()
 
 local cmp = require('cmp')
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
@@ -60,11 +52,16 @@ lsp.on_attach(function(client, bufnr)
   vim.keymap.set("n", "<leader>lrn", vim.lsp.buf.rename, opts)
   vim.keymap.set("n", "<leader>lh", vim.lsp.buf.signature_help, opts)
   vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+--  vim.keymap.set({'n', 'x'}, '<leader>f', function()
+--     vim.lsp.buf.format({async = false, timeout_ms = 10000})
+--  end, opts)
 end)
 
--- vim.diagnostic.config({
---   virtual_text = true,
--- })
+lsp.setup()
+
+vim.diagnostic.config({
+  virtual_text = true,
+})
 --
 -- lsp.configure('tsserver', {
 --   settings = {
@@ -79,7 +76,6 @@ end)
 --   }
 -- })
 
-lsp.setup()
 -- lsp.denols.setup {
 --   on_attach = lsp.on_attach,
 --   root_dir = lsp.util.root_pattern("deno.json", "deno.jsonc"),

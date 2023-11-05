@@ -15,13 +15,13 @@ return require("packer").startup(function(use)
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
   })
 
-  use({
-    "ellisonleao/gruvbox.nvim",
-    as = "gruvbox",
-    config = function()
-      vim.cmd("colorscheme gruvbox")
-    end,
-  })
+--  use({
+--    "ellisonleao/gruvbox.nvim",
+--    as = "gruvbox",
+--    config = function()
+--      vim.cmd("colorscheme gruvbox")
+--    end,
+--  })
   use {
     "folke/trouble.nvim",
     requires = "nvim-tree/nvim-web-devicons",
@@ -35,7 +35,7 @@ return require("packer").startup(function(use)
     end
   }
 
-  -- use('folke/tokyonight.nvim')
+  use('folke/tokyonight.nvim')
   -- use("rebelot/kanagawa.nvim")
 
   use({
@@ -73,10 +73,9 @@ return require("packer").startup(function(use)
   use("romgrk/nvim-treesitter-context")
   use("folke/zen-mode.nvim")
   use("github/copilot.vim")
-  use({ 'mattkubej/jest.nvim' })
   use({ "tpope/vim-unimpaired" })
   use({ "xolox/vim-misc" })
-  -- use({ "xolox/vim-notes" })
+  use({ "xolox/vim-notes" })
   use({
     "NTBBloodbath/rest.nvim",
     requires = { "nvim-lua/plenary.nvim" },
@@ -90,4 +89,9 @@ return require("packer").startup(function(use)
     setup = function() vim.g.mkdp_filetypes = { "markdown" } end,
     ft = { "markdown" },
   })
+  use({ 'BlackLight/nvim-http' })
+
+  --  use({ 'simrat39/rust-tools.nvim' })
+  use({ 'mattkubej/jest.nvim' })
+  use({ 'mfussenegger/nvim-dap' })
 end)
