@@ -15,13 +15,13 @@ return require("packer").startup(function(use)
     requires = { "kyazdani42/nvim-web-devicons", opt = true },
   })
 
---  use({
---    "ellisonleao/gruvbox.nvim",
---    as = "gruvbox",
---    config = function()
---      vim.cmd("colorscheme gruvbox")
---    end,
---  })
+  --  use({
+  --    "ellisonleao/gruvbox.nvim",
+  --    as = "gruvbox",
+  --    config = function()
+  --      vim.cmd("colorscheme gruvbox")
+  --    end,
+  --  })
   use {
     "folke/trouble.nvim",
     requires = "nvim-tree/nvim-web-devicons",
@@ -37,6 +37,8 @@ return require("packer").startup(function(use)
 
   use('folke/tokyonight.nvim')
   -- use("rebelot/kanagawa.nvim")
+  -- :Spectre
+  use({ 'nvim-pack/nvim-spectre' })
 
   use({
     "VonHeikemen/lsp-zero.nvim",
@@ -59,13 +61,17 @@ return require("packer").startup(function(use)
       { "rafamadriz/friendly-snippets" },
     },
   })
+  use({ 'folke/neodev.nvim' })
 
   use("ThePrimeagen/git-worktree.nvim")
-  use("ThePrimeagen/harpoon")
+  -- use("ThePrimeagen/harpoon")
 
   use("mbbill/undotree")
 
   use("nvim-treesitter/nvim-treesitter", {
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    },
     run = ":TSUpdate",
   })
 
@@ -74,6 +80,7 @@ return require("packer").startup(function(use)
   use("folke/zen-mode.nvim")
   use("github/copilot.vim")
   use({ "tpope/vim-unimpaired" })
+  use({ "tpope/vim-sleuth" })
   use({ "xolox/vim-misc" })
   use({ "xolox/vim-notes" })
   use({
@@ -90,8 +97,39 @@ return require("packer").startup(function(use)
     ft = { "markdown" },
   })
   use({ 'BlackLight/nvim-http' })
+  use({
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
+  })
 
   --  use({ 'simrat39/rust-tools.nvim' })
-  use({ 'mattkubej/jest.nvim' })
+  -- use({ 'mattkubej/jest.nvim' })
   use({ 'mfussenegger/nvim-dap' })
+  use({
+    -- Add indentation guides even on blank lines
+    'lukas-reineke/indent-blankline.nvim',
+    -- Enable `lukas-reineke/indent-blankline.nvim`
+    -- See `:help ibl`
+    main = 'ibl',
+    opts = {},
+  })
+  -- "gc" to comment visual regions/lines
+  use({ 'numToStr/Comment.nvim', opts = {} })
+
+  use {
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-neotest/neotest-jest",
+      "nvim-lua/plenary.nvim",
+      "antoinemadec/FixCursorHold.nvim",
+      "nvim-treesitter/nvim-treesitter"
+    }
+  }
+
+  use({ 'lbrayner/vim-rzip' })
 end)

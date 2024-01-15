@@ -74,6 +74,16 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["Comment.nvim"] = {
+    loaded = true,
+    path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/Comment.nvim",
+    url = "https://github.com/numToStr/Comment.nvim"
+  },
+  ["FixCursorHold.nvim"] = {
+    loaded = true,
+    path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/FixCursorHold.nvim",
+    url = "https://github.com/antoinemadec/FixCursorHold.nvim"
+  },
   LuaSnip = {
     loaded = true,
     path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/LuaSnip",
@@ -119,15 +129,10 @@ _G.packer_plugins = {
     path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/git-worktree.nvim",
     url = "https://github.com/ThePrimeagen/git-worktree.nvim"
   },
-  harpoon = {
+  ["indent-blankline.nvim"] = {
     loaded = true,
-    path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/harpoon",
-    url = "https://github.com/ThePrimeagen/harpoon"
-  },
-  ["jest.nvim"] = {
-    loaded = true,
-    path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/jest.nvim",
-    url = "https://github.com/mattkubej/jest.nvim"
+    path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
+    url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
   ["lsp-zero.nvim"] = {
     loaded = true,
@@ -156,6 +161,21 @@ _G.packer_plugins = {
     path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  ["neodev.nvim"] = {
+    loaded = true,
+    path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/neodev.nvim",
+    url = "https://github.com/folke/neodev.nvim"
+  },
+  neotest = {
+    loaded = true,
+    path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/neotest",
+    url = "https://github.com/nvim-neotest/neotest"
+  },
+  ["neotest-jest"] = {
+    loaded = true,
+    path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/neotest-jest",
+    url = "https://github.com/nvim-neotest/neotest-jest"
+  },
   ["null-ls.nvim"] = {
     loaded = true,
     path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
@@ -180,6 +200,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
+  },
+  ["nvim-spectre"] = {
+    loaded = true,
+    path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/nvim-spectre",
+    url = "https://github.com/nvim-pack/nvim-spectre"
   },
   ["nvim-treesitter"] = {
     loaded = true,
@@ -232,6 +257,11 @@ _G.packer_plugins = {
     path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
   },
+  ["todo-comments.nvim"] = {
+    loaded = true,
+    path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/todo-comments.nvim",
+    url = "https://github.com/folke/todo-comments.nvim"
+  },
   ["tokyonight.nvim"] = {
     loaded = true,
     path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
@@ -272,6 +302,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/vim-notes",
     url = "https://github.com/xolox/vim-notes"
+  },
+  ["vim-rzip"] = {
+    loaded = true,
+    path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/vim-rzip",
+    url = "https://github.com/lbrayner/vim-rzip"
+  },
+  ["vim-sleuth"] = {
+    loaded = true,
+    path = "/Users/dennyjohansson/.local/share/nvim/site/pack/packer/start/vim-sleuth",
+    url = "https://github.com/tpope/vim-sleuth"
   },
   ["vim-unimpaired"] = {
     loaded = true,
