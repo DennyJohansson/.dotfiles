@@ -1,7 +1,7 @@
 vim.defer_fn(function()
   require 'nvim-treesitter.configs'.setup {
     -- A list of parser names, or "all"
-    ensure_installed = { "help", "javascript", "typescript", "c", "lua", "rust", "http", "json" },
+    -- ensure_installed = { "help", "javascript", "typescript", "c", "lua", "rust", "http", "json" },
 
     incremental_selection = {
       enable = true,
