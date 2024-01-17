@@ -14,6 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 -- , event = "VeryLazy"},
 require("lazy").setup({
   { "jose-elias-alvarez/null-ls.nvim" },
+  { "tpope/vim-sleuth" },
   { "tpope/vim-fugitive" },
   { "idanarye/vim-merginal" },
   { "nvim-lua/plenary.nvim" },
@@ -30,7 +31,6 @@ require("lazy").setup({
   { "github/copilot.vim" },
   { "tpope/vim-unimpaired" },
   { "tpope/vim-sleuth" },
-  { "xolox/vim-notes", dependencies = { "xolox/vim-misc" } },
   { "godlygeek/tabular" },
   { "mickael-menu/zk-nvim" },
   { 'findango/vim-mdx' },
@@ -38,6 +38,10 @@ require("lazy").setup({
   { 'mfussenegger/nvim-dap' },
   { 'numToStr/Comment.nvim' },
   { 'lbrayner/vim-rzip' },
+  {
+    "xolox/vim-notes",
+    dependencies = { "xolox/vim-misc" }
+  },
   {
     "nvim-lualine/lualine.nvim",
     dependencies = { "kyazdani42/nvim-web-devicons", lazy = true },
