@@ -32,7 +32,6 @@ require("lazy").setup({
   { "tpope/vim-unimpaired" },
   { "tpope/vim-sleuth" },
   { "godlygeek/tabular" },
-  { "mickael-menu/zk-nvim" },
   { 'findango/vim-mdx' },
   { 'BlackLight/nvim-http' },
   { 'mfussenegger/nvim-dap' },
