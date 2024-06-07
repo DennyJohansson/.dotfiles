@@ -4,9 +4,7 @@ if [[ $# -eq 1 ]]; then
 #    printf "Using session $1\n"
     selected=$1
 else
- 
-export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
-  selected=$(find ~/workwork ~/workwork/wbd ~/.dotfiles ~/personal ~/personal/stuff ~/personal/rustland -mindepth 1 -maxdepth 1 -type d | fzf)
+    selected=$(find ~/workwork/righthub ~/.dotfiles ~/personal -mindepth 1 -maxdepth 1 -type d | fzf)
 fi
 
 if [[ -z $selected ]]; then

@@ -1,10 +1,17 @@
+require('mason-tool-installer').setup({
+  -- Install these linters, formatters, debuggers automatically
+  ensure_installed = {
+    'java-debug-adapter',
+    'java-test',
+  },
+})
+-- There is an issue with mason-tools-installer running with VeryLazy, since it triggers on VimEnter which has already occurred prior to this plugin loading so we need to call install explicitly
+-- https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim/issues/39
+vim.api.nvim_command('MasonToolsInstall')
+
 -- [[ Configure LSP ]]
 --  This function gets run when an LSP connects to a particular buffer.
 local on_attach = function(_, bufnr)
-  -- NOTE: Remember that lua is a real programming language, and as such it is possible
-  -- to define small helper and utility functions so you don't have to repeat yourself
-  -- many times.
-  --
   -- In this case, we create a function that lets us more easily define mappings specific
   -- for LSP related items. It sets the mode, buffer and description for us each time.
   local nmap = function(keys, func, desc)
@@ -45,8 +52,16 @@ local on_attach = function(_, bufnr)
 end
 -- mason-lspconfig requires that these setup functions are called in this order
 -- before setting up the servers.
+-- require('java').setup()
+-- require('lspconfig').jdtls.setup({})
 require('mason').setup()
-require('mason-lspconfig').setup()
+require('mason-lspconfig').setup({
+  ensure_installed = {
+    'jdtls',
+    'java',
+    'jsonls'
+  }
+})
 
 -- Enable the following language servers
 --  Feel free to add/remove any LSPs that you want here. They will automatically be installed.
@@ -72,6 +87,7 @@ local servers = {
       -- diagnostics = { disable = { 'missing-fields' } },
     },
   },
+
 }
 
 -- Setup neovim lua configuration
@@ -90,12 +106,14 @@ mason_lspconfig.setup {
 
 mason_lspconfig.setup_handlers {
   function(server_name)
-    require('lspconfig')[server_name].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-      settings = servers[server_name],
-      filetypes = (servers[server_name] or {}).filetypes,
-    }
+    if server_name ~= 'jdtls' then
+      require('lspconfig')[server_name].setup {
+        capabilities = capabilities,
+        on_attach = on_attach,
+        settings = servers[server_name],
+        filetypes = (servers[server_name] or {}).filetypes,
+      }
+    end
   end,
 }
 
@@ -103,7 +121,9 @@ mason_lspconfig.setup_handlers {
 -- See `:help cmp`
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
+
 require('luasnip.loaders.from_vscode').lazy_load()
+
 luasnip.config.setup {}
 
 cmp.setup {
@@ -116,17 +136,17 @@ cmp.setup {
     completeopt = 'menu,menuone,noinsert',
   },
   mapping = cmp.mapping.preset.insert {
-        ['<C-n>'] = cmp.mapping.select_next_item(),
-        ['<C-p>'] = cmp.mapping.select_prev_item(),
-        ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete {},
-        ['<CR>'] = cmp.mapping.confirm {
+    ['<C-n>'] = cmp.mapping.select_next_item(),
+    ['<C-p>'] = cmp.mapping.select_prev_item(),
+    ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-f>'] = cmp.mapping.scroll_docs(4),
+    ['<C-Space>'] = cmp.mapping.complete {},
+    ['<CR>'] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
       select = true,
     },
-        ['<Tab>'] = nil,
-        ['<S-Tab>'] = nil
+    ['<Tab>'] = nil,
+    ['<S-Tab>'] = nil
   },
   sources = {
     { name = 'nvim_lsp' },
