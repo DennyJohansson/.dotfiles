@@ -61,8 +61,32 @@ null_ls.setup({
     null_ls.builtins.formatting.stylua.with(opts.stylua_formatting),
     null_ls.builtins.formatting.elm_format.with(opts.elm_format_formatting),
     null_ls.builtins.code_actions.eslint.with(opts.eslint_diagnostics),
+
+    null_ls.builtins.diagnostics.checkstyle.with({
+      extra_args = { "-c", "/Users/dennyjohansson/checkstyle.xml" },
+      timeout = 200000,
+      -- how to get the file path?
+      -- /Users/dennyjohansson/workwork/righthub/users/services/src/main/java/com/righthub/users/service/UserMembershipService.java
+
+      -- args = { "-f", "sarif", "$FILE" },
+      args = { "-f", "sarif", "$FILENAME" },
+    }),
+    --     [[Checkstyle only offers a jar file as download. It is recommended to put an executable wrapper script in
+    -- +your path.
+    -- +Example wrapper script:
+    -- +```bash
+    -- +#!/usr/bin/env bash
+    -- +java -jar path/to/checkstyle.jar "$@"
+    -- +```]]
+    -- null_ls.builtins.formatting.clang_format.with({
+    --   filetypes = { "java" },
+    --   extra_args = { "--style", "Google" },
+    -- extra_args = { "--style", "file:/Users/dennyjohansson/.clang_format" },
+    -- extra_args = { "--style", "file:/Users/dennyjohansson/checkstyle.xml" },
+    -- }),
   },
   on_attach = on_attach,
+  debug = true,
 })
 
 local lsp_format_async = function()

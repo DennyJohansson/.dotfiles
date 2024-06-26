@@ -84,12 +84,10 @@ local config = {
       },
       signatureHelp = { enabled = true },
       format = {
-        enabled = true,
-        -- Formatting works by default, but you can refer to a specific file/URL if you choose
-        -- settings = {
-        --   url = "https://github.com/google/styleguide/blob/gh-pages/intellij-java-google-style.xml",
-        --   profile = "GoogleStyle",
-        -- },
+        enabled = false,
+        -- Don't get this to work
+        -- url = "/Users/dennyjohansson/.config/nvim/ftplugin/righthub-codestyle.xml",
+        -- profile = "Righthub",
       },
     },
     completion = {
