@@ -4,7 +4,6 @@ require("dap").adapters["pwa-node"] = {
   port = "${port}",
   executable = {
     command = "node",
-    -- 💀 Make sure to update this path to point to your installation
     args = { "~/js-debug/src/dapDebugServer.js", "${port}" },
   }
 }
