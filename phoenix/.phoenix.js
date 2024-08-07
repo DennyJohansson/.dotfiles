@@ -92,7 +92,8 @@ Key.on('f', CONTROL_SHIFT, () => {
 
 const launchApp = (appName) => {
   App.launch(appName).focus();
-  appHistory.push(appName);
+  // Add to history, should be first
+  appHistory.unshift(appName);
   appHistoryCursor = 0;
 }
 
@@ -129,18 +130,7 @@ Key.on('{', MEH, function() {
 })
 
 Key.on('o', MEH, function() {
-  appHistoryCursor -= 1;
-
-  const appName = appHistory[appHistoryCursor];
-
-  if (appName) {
-    App.launch(appName).focus();
-  } else {
-    appHistoryCursor = 0;
-  }
-});
-
-Key.on('i', MEH, function() {
+  // back in history
   appHistoryCursor += 1;
 
   const appName = appHistory[appHistoryCursor];
@@ -148,6 +138,21 @@ Key.on('i', MEH, function() {
   if (appName) {
     App.launch(appName).focus();
   } else {
+    // we have hit the last of history
+    appHistoryCursor = appHistoryCursor - 1;
+  }
+});
+
+Key.on('i', MEH, function() {
+  // forward in history
+  appHistoryCursor -= 1;
+
+  const appName = appHistory[appHistoryCursor];
+
+  if (appName) {
+    App.launch(appName).focus();
+  } else {
+    // we have hit the latest app
     appHistoryCursor = 0;
   }
 });
