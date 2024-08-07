@@ -130,29 +130,19 @@ Key.on('{', MEH, function() {
 })
 
 Key.on('o', MEH, function() {
-  // back in history
-  appHistoryCursor += 1;
-
-  const appName = appHistory[appHistoryCursor];
+  const appName = appHistory[(appHistoryCursor + 1)];
 
   if (appName) {
     App.launch(appName).focus();
-  } else {
-    // we have hit the last of history
-    appHistoryCursor = appHistoryCursor - 1;
+    appHistoryCursor += 1;
   }
 });
 
 Key.on('i', MEH, function() {
-  // forward in history
-  appHistoryCursor -= 1;
-
-  const appName = appHistory[appHistoryCursor];
+  const appName = appHistory[(appHistoryCursor - 1)];
 
   if (appName) {
     App.launch(appName).focus();
-  } else {
-    // we have hit the latest app
-    appHistoryCursor = 0;
+    appHistoryCursor -= 1;
   }
 });
