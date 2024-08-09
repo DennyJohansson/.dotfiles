@@ -22,10 +22,7 @@ const RIGHT = 'right';
 const CENTRE = 'centre';
 
 let appHistoryCursor = 0;
-// don't save duplicates, 
-// if the app is already in the history, remove it and add it to the front
 let appHistory = [];
-// TODO: support <leader> + b : go [b]ack to previous app
 let initBackApp = null;
 
 Key.on("+", MEH, () => {
