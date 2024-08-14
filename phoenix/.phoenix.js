@@ -146,7 +146,7 @@ Key.on('}', MEH, function() {
   launchApp('Slack');
 })
 
-Key.on(')', MEH, function() {
+Key.on('[', MEH, function() {
   launchApp('Spotify');
 })
 
@@ -164,6 +164,10 @@ Key.on('(', MEH, function() {
 
 Key.on('{', MEH, function() {
   launchApp('Chromium');
+})
+
+Key.on(')', MEH, function() {
+  launchApp('IntelliJ IDEA CE');
 })
 
 Key.on('o', MEH, function() {

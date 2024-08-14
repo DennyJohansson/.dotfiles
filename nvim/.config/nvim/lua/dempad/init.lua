@@ -3,9 +3,10 @@ require("dempad.remap")
 -- needs to be after remap else leader will not be correct
 require("dempad.plugins")
 -- require("dempad.packer")
+require("dempad.invert")
 
 function R(name)
-    require("plenary.reload").reload_module(name)
+  require("plenary.reload").reload_module(name)
 end
 
 -- TODO: https://github.com/bcampolo/nvim-starter-kit/blob/java/.config/nvim/init.lua#L18

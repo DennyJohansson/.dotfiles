@@ -49,7 +49,8 @@ export NVM_DIR="$HOME/.nvm"
 
 # Set nvim as default editor for Git CLI
 export EDITOR=nvim
-export TERM=xterm-256color
+# export TERM=xterm-256color
+# export TERM=xterm-kitty-256color
 
 # source ~/.ignore.sh
 # bun completions
