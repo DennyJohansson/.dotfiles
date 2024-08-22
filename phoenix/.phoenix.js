@@ -135,7 +135,7 @@ const goBackToPreviousApp = () => {
 Key.on('b', MEH, goBackToPreviousApp);
 
 Key.on('*', MEH, function() {
-  launchApp('Kitty');
+  launchApp('WezTerm');
 })
 
 Key.on(']', MEH, function() {
@@ -167,7 +167,7 @@ Key.on('{', MEH, function() {
 })
 
 Key.on(')', MEH, function() {
-  launchApp('IntelliJ IDEA CE');
+  launchApp('IntelliJ IDEA Ultimate');
 })
 
 Key.on('o', MEH, function() {

@@ -58,10 +58,15 @@ export EDITOR=nvim
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$PATH:/path/to/elixir/bin"
-export PATH="/usr/local/sbin:/usr/local/bin:$BUN_INSTALL/bin:$PATH"
-export PATH="$PATH:/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin/gke-gcloud-auth-plugin"
-export PATH="$PATH:/Users/dennyjohansson/.local/share/nvim/mason/bin"
+
+# PATH
+PATH="$PATH:/path/to/elixir/bin"
+PATH="/usr/local/sbin:/usr/local/bin:$BUN_INSTALL/bin:$PATH"
+PATH="$PATH:/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin/gke-gcloud-auth-plugin"
+PATH="$PATH:/Users/dennyjohansson/.local/share/nvim/mason/bin"
+PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
+export PATH
+
 export USE_GKE_GCLOUD_AUTH_PLUGIN=true # needed until kubectl 1.25
 # General
 alias ll='ls -lah' #List files with more information

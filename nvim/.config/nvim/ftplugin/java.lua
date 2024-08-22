@@ -10,7 +10,7 @@ local bundles = {
 
 -- Needed for running/debugging unit tests
 vim.list_extend(bundles,
-  vim.split(vim.fn.glob(vim.env.HOME .. "/.local/share/nvim/mason/share/java-test/*.jar", 1), "\n"))
+  vim.split(vim.fn.glob(vim.env.HOME .. "/.local/share/nvim/mason/share/java-test/*.jar", true), "\n"))
 
 -- See `:help vim.lsp.start_client` for an overview of the supported `config` options.
 local config = {
@@ -23,7 +23,6 @@ local config = {
     '-Declipse.product=org.eclipse.jdt.ls.core.product',
     '-Dlog.protocol=true',
     '-Dlog.level=ALL',
-    '-javaagent:' .. vim.env.HOME .. '/.local/share/nvim/mason/share/jdtls/lombok.jar',
     '-Xmx4g',
     '--add-modules=ALL-SYSTEM',
     '--add-opens', 'java.base/java.util=ALL-UNNAMED',
@@ -31,7 +30,6 @@ local config = {
 
     -- Eclipse jdtls location
     '-jar', vim.env.HOME .. '/.local/share/nvim/mason/share/jdtls/plugins/org.eclipse.equinox.launcher.jar',
-    -- TODO Update this to point to the correct jdtls subdirectory for your OS (config_linux, config_mac, config_win, etc)
     '-configuration', vim.env.HOME .. '/.local/share/nvim/mason/packages/jdtls/config_mac',
     '-data', workspace_dir
   },
@@ -133,7 +131,7 @@ local config = {
 }
 
 config['on_attach'] = function(client, bufnr)
-  jdtls.setup_dap({ hotcodereplace = 'auto' })
+  -- jdtls.setup_dap({ hotcodereplace = 'auto' })
   -- In this case, we create a function that lets us more easily define mappings specific
   -- for LSP related items. It sets the mode, buffer and description for us each time.
   local nmap = function(keys, func, desc)
