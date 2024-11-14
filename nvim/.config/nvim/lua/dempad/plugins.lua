@@ -27,7 +27,7 @@ require("lazy").setup({
   { "nvim-treesitter/playground" },
   { "romgrk/nvim-treesitter-context" },
   { "folke/zen-mode.nvim" },
-  { "github/copilot.vim" },
+  -- { "github/copilot.vim" },
   { "tpope/vim-unimpaired" },
   { "tpope/vim-sleuth" },
   { "godlygeek/tabular" },
@@ -99,7 +99,7 @@ require("lazy").setup({
   -- Useful plugin to show you pending keybinds.
   { 'folke/which-key.nvim',   opts = {} },
   { "EdenEast/nightfox.nvim" },
-  -- { "folke/tokyonight.nvim" },
+  { "folke/tokyonight.nvim" },
 
   -- { "blazkowolf/gruber-darker.nvim" },
   -- Adds git related signs to the gutter, as well as utilities for managing changes
@@ -172,12 +172,6 @@ require("lazy").setup({
   { 'simrat39/rust-tools.nvim' },
   { 'ThePrimeagen/harpoon' },
   { 'akinsho/git-conflict.nvim', version = "*", config = true },
-  -- Java LSP
-  {
-    -- https://github.com/mfussenegger/nvim-jdtls
-    'mfussenegger/nvim-jdtls',
-    ft = 'java', -- Enable only on .java file extensions
-  },
   {
     'rcarriga/nvim-dap-ui',
     event = 'VeryLazy',
@@ -195,32 +189,6 @@ require("lazy").setup({
     -- https://github.com/theHamsta/nvim-dap-virtual-text
     'theHamsta/nvim-dap-virtual-text',
     lazy = true,
-    opts = {
-      -- Display debug text as a comment
-      commented = true,
-      -- Customize virtual text
-      display_callback = function(variable, buf, stackframe, node, options)
-        if options.virt_text_pos == 'inline' then
-          return ' = ' .. variable.value
-        else
-          return variable.name .. ' = ' .. variable.value
-        end
-      end,
-    },
-  },
-  {
-    -- https://github.com/CopilotC-Nvim/CopilotChat.nvim
-    "CopilotC-Nvim/CopilotChat.nvim",
-    branch = "canary",
-    dependencies = {
-      { "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
-      { "nvim-lua/plenary.nvim" },  -- for curl, log wrapper
-    },
-    opts = {
-      debug = true, -- Enable debugging
-      -- See Configuration section for rest
-    },
-    -- See Commands section for default commands if you want to lazy load on them
   },
   -- Debugging Support
   {
@@ -236,4 +204,5 @@ require("lazy").setup({
       'nvim-telescope/telescope-dap.nvim', -- telescope integration with dap
     },
   },
+  { 'nvim-java/nvim-java' }
 }, {})

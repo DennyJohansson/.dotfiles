@@ -7,7 +7,7 @@ config.color_scheme = 'nightfox'
 
 -- config.font = wezterm.font 'DejaVuSansM Nerd Font Mono'
 config.font = wezterm.font 'FiraMono Nerd Font Mono'
-config.font_size = 16.0
+config.font_size = 15.0
 
 config.enable_tab_bar = false
 

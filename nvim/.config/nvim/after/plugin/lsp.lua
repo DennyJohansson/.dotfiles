@@ -1,3 +1,4 @@
+require('java').setup()
 require('mason-tool-installer').setup({
   -- Install these linters, formatters, debuggers automatically
   ensure_installed = {
@@ -50,10 +51,8 @@ local on_attach = function(_, bufnr)
     vim.lsp.buf.format()
   end, { desc = 'Format current buffer with LSP' })
 end
+
 -- mason-lspconfig requires that these setup functions are called in this order
--- before setting up the servers.
--- require('java').setup()
--- require('lspconfig').jdtls.setup({})
 require('mason').setup()
 require('mason-lspconfig').setup()
 
@@ -108,6 +107,12 @@ mason_lspconfig.setup_handlers {
         filetypes = (servers[server_name] or {}).filetypes,
       }
     end
+    if server_name == 'jdtls' then
+      require('lspconfig').jdtls.setup({
+        capabilities = capabilities,
+        on_attach = on_attach,
+      })
+    end
   end,
 }
 
@@ -136,7 +141,7 @@ cmp.setup {
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete {},
     ['<CR>'] = cmp.mapping.confirm {
-      behavior = cmp.ConfirmBehavior.Replace,
+      -- behavior = cmp.ConfirmBehavior.replace
       select = true,
     },
     ['<Tab>'] = nil,
@@ -148,3 +153,5 @@ cmp.setup {
     { name = 'path' },
   },
 }
+
+-- require('lspconfig').jdtls.setup({})

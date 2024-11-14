@@ -53,6 +53,12 @@ vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { de
 vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = '[S]earch [R]esume' })
 vim.keymap.set('n', '<leader>gf', require('telescope.builtin').git_status, { desc = '[G]it status [F]iles' })
 
+-- vim.keymap.set('n',
+--   '<leader>ss', require('telescope.builtin').lsp_dynamic_workspace_symbols,
+--   { desc = '[S]earch [S]ymbols' }
+-- )
+-- :Telescope lsp_dynamic_workspace_symbols
+
 -- Enable telescope fzf native, if installed
 -- pcall(require('telescope').load_extension, 'fzf')
 

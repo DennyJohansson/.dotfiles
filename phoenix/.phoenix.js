@@ -135,7 +135,7 @@ const goBackToPreviousApp = () => {
 Key.on('b', MEH, goBackToPreviousApp);
 
 Key.on('*', MEH, function() {
-  launchApp('WezTerm');
+  launchApp('kitty');
 })
 
 Key.on(']', MEH, function() {
@@ -146,8 +146,8 @@ Key.on('}', MEH, function() {
   launchApp('Slack');
 })
 
-Key.on('[', MEH, function() {
-  launchApp('Spotify');
+Key.on(')', MEH, function() {
+  launchApp('IntelliJ IDEA Ultimate');
 })
 
 Key.on('=', MEH, function() {
@@ -155,19 +155,19 @@ Key.on('=', MEH, function() {
 })
 
 Key.on('&', MEH, function() {
-  launchApp('Microsoft Outlook');
+  launchApp('Discord');
 })
 
 Key.on('(', MEH, function() {
-  launchApp('Discord');
+  launchApp('Microsoft Outlook');
 })
 
 Key.on('{', MEH, function() {
   launchApp('Chromium');
 })
 
-Key.on(')', MEH, function() {
-  launchApp('IntelliJ IDEA Ultimate');
+Key.on('[', MEH, function() {
+  launchApp('Spotify');
 })
 
 Key.on('o', MEH, function() {
