@@ -65,18 +65,39 @@ PATH="/usr/local/sbin:/usr/local/bin:$BUN_INSTALL/bin:$PATH"
 PATH="$PATH:/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin/gke-gcloud-auth-plugin"
 PATH="$PATH:/Users/dennyjohansson/.local/share/nvim/mason/bin"
 PATH="$PATH:/Applications/WezTerm.app/Contents/MacOS"
+
+
+# Java intellij dependencies
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+# /java
+
 export PATH
 
 export USE_GKE_GCLOUD_AUTH_PLUGIN=true # needed until kubectl 1.25
 # General
 alias ll='ls -lah' #List files with more information
+
+# [M]aven [C]lean [I]nstall
 alias mci='mvn clean install'
-alias mcit='mvn clean install -Dmaven.test.skip=true'
-# Maven
+# [M]aven [C]lean [I]nstall and [S]kip tests
+alias mcis='mvn clean install -Dmaven.test.skip=true'
+# [M]aven [C]lean [G]enerate
 alias mcg='mvn clean generate-sources'
+# [M]aven [G]enerate [S]ources
+alias mgs='mvn generate-sources -DskipCheckstyle -DskipSpotbugs -Dmaven.test.skip=true'
+# [M]aven [G]enerate [T]est [S]ources
+alias mgts='mvn generate-test-sources -DskipCheckstyle -DskipSpotbugs -Dmaven.test.skip=true'
+
+
 # Kubernetes
 alias kdev='kubectx gke_dev-envc52ce870_europe-west1_dev-env-gke'
 alias kprod='kubectx gke_production-env66d705bb_europe-west1_production-env-gke'
+
+command_not_found_handler() {
+  pkgx -- "$@"
+}
 
 # Q post block. Keep at the bottom of this file.
 ## git config remote.origin.fetch '+refs/heads/*:refs/remotes/origin/*'

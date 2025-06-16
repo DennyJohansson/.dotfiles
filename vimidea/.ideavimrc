@@ -6,7 +6,6 @@
 "" :actionlist to view all available actions. Enable "Track Action Ids" to see
 "" the action id after each action
 "" -- Suggested options --
-" VimFindActionIdAction
 " Show a few lines of context around the cursor. Note that this makes the
 " text scroll if you mouse-click near the start or end of the window.
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
@@ -25,6 +24,7 @@ map Q gq
 
 " Highlight copied text
 Plug 'machakann/vim-highlightedyank'
+Plug 'preservim/nerdtree'
 g Commentary plugin
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
@@ -34,7 +34,8 @@ set NERDTree
 filetype plugin indent on
 
 let mapleader=" "
-let number relativenumber
+set relativenumber
+set number
 
 " [V]im [F]ind [A]action
 nmap <leader>vfa <Action>(VimFindActionIdAction)
@@ -45,8 +46,8 @@ nmap <leader>b <Action>(ToggleLineBreakpoint)
 " [P]roject [V]iew
 nmap <leader>pv :NERDTreeToggle<CR>
 
-nmap <C-o> :action Back<CR>
-nmap <C-i> :action Forward<CR>
+" nmap <C-o> :action Back<CR>
+" nmap <C-i> :action Forward<CR>
 
 " TESTING
 nmap <leader>bb <Action>(ToggleLineBreakpoint)
@@ -60,7 +61,7 @@ nmap <leader>tt <Action>(Run)
 nmap <leader>ttn <Action>(RunClass)
 
 nmap <leader>f <Action>(ReformatCode)
-mmap ]c <Action>(VcsShowNextChangeMarker)
+nmap ]c <Action>(VcsShowNextChangeMarker)
 nmap [c <Action>(VcsShowPrevChangeMarker)
 nmap [[ <Action>(MethodUp)
 nmap ]] <Action>(MethodDown)
@@ -87,16 +88,19 @@ nmap <leader>sf <Action>(GotoFile)
 nmap <leader>sc <Action>(GotoClass)
 " [s]earch [g]rep
 nmap <leader>sg <Action>(TextSearchAction)
+" Bookmarks
+" mA - project scope
+" ma - file scope
+" 'a - go to file scope mark at a
+" 'A - project scoped
+" [S]earch [B]ookmarks
+nmap <leader>sb <Action>(ShowBookmarks)
 
 " * search word under cursor forward, # backwards
 
 " refactor
 " [r]e[n]ame
 nmap <leader>rn <Action>(RenameElement)
-
-" Move between tabs
-nmap H :action PreviousTab<CR>
-nmap L :action NextTab<CR>
 
 " [g]oto [r]eference
 nmap <leader>gr <Action>(FindUsages)
@@ -115,7 +119,7 @@ nnoremap <space><space> :action RecentFiles<CR>
 " [v]iew [t]erminal
 nmap <leader>vt <Action>(ActivateTerminalToolWindow)
 " [z][z]en
-nnoremap <leader>zz :action HideAllWindows<CR>
+nnoremap <leader>zz :action ToggleDistractionFreeMode<CR>
 " [g]it [a]ction
 nnoremap <Leader>ga :action Vcs.QuickListPopupAction<CR>
 " [g]it [b]ranches
@@ -170,17 +174,24 @@ nmap <leader>gs <Action>(ActivateCommitToolWindow)
 nmap <leader>u (RecentChanges)
 " [G]enerate [C]ode
 map <leader>gc <Action>(Generate)
-" [S]how [S]cratch
-"map <leader>ss <Action>(Scratch.ShowFilesPopup)
-" [G]o to [T]est -- command + shift + t
-" map <leader>gt <Action>(GoToTest)
+" [I]intellJ [G]o to [T]est -- command + shift + t
+map <leader>igt <Action>(GoToTest)
 
-" Just makes me nervous
-map H h
-" Popup navigation
+" don't want H
+" map H h
+" Popup navigation (refactor)
 map <c-n> <Action>(EditorDown)
 map <c-p> <Action>(EditorUp)
-" inline CMD + OPTION + N
-map <leader>ci <Action>(Inline)
-" extract
-map <leader>ce <Action>(ExtractMethod)
+
+" [I]ntelliJ [I]nline
+map <leader>ii <Action>(Inline)
+" [I]ntelliJ [E]xtract
+map <leader>ie <Action>(ExtractMethod)
+" [I]ntelliJ [S]ettings
+map <leader>is <Action>(WelcomeScreen.Settings)
+" [Z]oom [I]n
+nmap <d-=> <Action>(ZoomInIdeAction)
+" [Z]oom [O]ut
+nmap <d--> <Action>(ZoomOutIdeAction)
+
+"nmap <leader>lh <Action>(ErrorDescription)

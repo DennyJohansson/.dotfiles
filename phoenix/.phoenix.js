@@ -25,7 +25,7 @@ let appHistoryCursor = 0;
 let appHistory = [];
 let initBackApp = null;
 
-Key.on("+", MEH, () => {
+Key.on("=", MEH, () => {
   const window = Window.focused();
   if (window) {
     window.resize({ width: INCREMENT });
@@ -46,7 +46,7 @@ Key.on('c', CONTROL_SHIFT, () => {
   if (window) {
     window.setSize(
       {
-        width: screen.width / 1.2,
+        width: screen.width / 1.5,
         height: screen.height,
       }
     );
@@ -134,40 +134,40 @@ const goBackToPreviousApp = () => {
 
 Key.on('b', MEH, goBackToPreviousApp);
 
-Key.on('*', MEH, function() {
-  launchApp('kitty');
+Key.on('0', MEH, function() {
+  launchApp('Ghostty.app');
 })
 
-Key.on(']', MEH, function() {
+Key.on('9', MEH, function() {
   launchApp('Brave Browser');
 })
 
-Key.on('}', MEH, function() {
+Key.on('8', MEH, function() {
   launchApp('Slack');
 })
 
-Key.on(')', MEH, function() {
+Key.on('7', MEH, function() {
   launchApp('IntelliJ IDEA Ultimate');
 })
 
-Key.on('=', MEH, function() {
+Key.on('6', MEH, function() {
   launchApp('Microsoft Teams');
 })
 
-Key.on('&', MEH, function() {
+Key.on('5', MEH, function() {
   launchApp('Discord');
 })
 
-Key.on('(', MEH, function() {
+Key.on('4', MEH, function() {
+  launchApp('Spotify');
+})
+
+Key.on('3', MEH, function() {
   launchApp('Microsoft Outlook');
 })
 
-Key.on('{', MEH, function() {
+Key.on('2', MEH, function() {
   launchApp('Chromium');
-})
-
-Key.on('[', MEH, function() {
-  launchApp('Spotify');
 })
 
 Key.on('o', MEH, function() {

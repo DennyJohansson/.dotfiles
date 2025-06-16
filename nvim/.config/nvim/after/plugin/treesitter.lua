@@ -4,15 +4,15 @@ vim.defer_fn(function()
     -- ensure_installed = { "help", "javascript", "typescript", "c", "lua", "rust", "http", "json" },
     ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim', 'bash', 'jq', 'java' },
 
-    incremental_selection = {
-      enable = true,
-      keymaps = {
-        init_selection = '<c-t>',
-        node_incremental = '<c-t>',
-        scope_incremental = '<c-s>',
-        node_decremental = '<M-t>',
-      },
-    },
+    -- incremental_selection = {
+    --   enable = true,
+    --   keymaps = {
+    -- init_selection = '<c-t>',
+    -- node_incremental = '<c-t>',
+    -- scope_incremental = '<c-s>',
+    -- node_decremental = '<M-t>',
+    -- },
+    -- },
 
     textobjects = {
       select = {
