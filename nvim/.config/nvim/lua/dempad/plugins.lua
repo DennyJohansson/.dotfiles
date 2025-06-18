@@ -171,13 +171,13 @@ require("lazy").setup({
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = {},
 		cmd = "Trouble",
-		-- modes = {
-		-- 	diagnostics = {
-		-- 		groups = {
-		-- 			{ "filename", format = "{file_icon} {basename:Title} {count}" },
-		-- 		},
-		-- 	},
-		-- },
+		modes = {
+			diagnostics = {
+				groups = {
+					{ "filename", format = "{file_icon} {basename:Title} {count}" },
+				},
+			},
+		},
 		keys = {
 			{
 				"<leader>ld",
@@ -302,6 +302,9 @@ require("lazy").setup({
 				lua = { "stylua" },
 				python = { "isort", "black" },
 				javascript = { "prettierd", "prettier", stop_after_first = true },
+				javascriptreact = { "prettierd", "prettier", stop_after_first = true },
+				typescript = { "prettierd", "prettier", stop_after_first = true },
+				typescriptreact = { "prettierd", "prettier", stop_after_first = true },
 				stylelint = { "stylelint" },
 				-- Conform can also run multiple formatters sequentially
 				-- python = { "isort", "black" },

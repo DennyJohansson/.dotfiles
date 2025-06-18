@@ -40,28 +40,29 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 		end
 
---   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
---   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
---   nmap('<leader>lh', vim.lsp.buf.signature_help, '[L]sp [H]elp')
---
---   nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
---   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
---   nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
---   nmap('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
---   nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
---   nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
---
+		--   nmap('<leader>rn', vim.lsp.buf.rename, '[R]e[n]ame')
+		--   nmap('<leader>ca', vim.lsp.buf.code_action, '[C]ode [A]ction')
+		--   nmap('<leader>lh', vim.lsp.buf.signature_help, '[L]sp [H]elp')
+		--
+		--   nmap('gd', require('telescope.builtin').lsp_definitions, '[G]oto [D]efinition')
+		--   nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
+		--   nmap('gI', require('telescope.builtin').lsp_implementations, '[G]oto [I]mplementation')
+		--   nmap('<leader>D', require('telescope.builtin').lsp_type_definitions, 'Type [D]efinition')
+		--   nmap('<leader>ds', require('telescope.builtin').lsp_document_symbols, '[D]ocument [S]ymbols')
+		--   nmap('<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, '[W]orkspace [S]ymbols')
+		--
 		-- Rename the variable under your cursor.
 		--  Most Language Servers support renaming across files, etc.
-		map("grn", vim.lsp.buf.rename, "[R]e[n]ame")
+		map("<leader>rn", vim.lsp.buf.rename, "[R]e[n]ame")
+
+		map("<leader>sd", vim.diagnostic.open_float, "[S]how [D]iagnostic")
 
 		-- Execute a code action, usually your cursor needs to be on top of an error
 		-- or a suggestion from your LSP for this to activate.
-		map("gra", vim.lsp.buf.code_action, "[G]oto Code [A]ction", { "n", "x" })
+		map("<leader>ca", vim.lsp.buf.code_action, "[C]ode [A]ction", { "n", "x" })
 
 		-- Find references for the word under your cursor.
-		-- map("grr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
-		-- using trouble now
+		map("grr", require("telescope.builtin").lsp_references, "[G]oto [R]eferences")
 
 		-- Jump to the implementation of the word under your cursor.
 		--  Useful when your language has ways of declaring types without an actual implementation.
@@ -203,7 +204,6 @@ local servers = {
 	-- But for many setups, the LSP (`ts_ls`) will work just fine
 	ts_ls = {},
 	--
-
 	lua_ls = {
 		-- cmd = { ... },
 		-- filetypes = { ... },

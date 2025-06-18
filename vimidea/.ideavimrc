@@ -103,8 +103,8 @@ nmap <leader>sb <Action>(ShowBookmarks)
 nmap <leader>rn <Action>(RenameElement)
 
 " [g]oto [r]eference
-nmap <leader>gr <Action>(FindUsages)
-nmap gD <Action>(GotoTypeDeclaration)
+nmap <leader>grr <Action>(FindUsages)
+nmap grt <Action>(GotoTypeDeclaration)
 
 nmap <C-j> <Action>(NextOccurence)
 nmap <C-k> <Action>(PreviousOccurence)
