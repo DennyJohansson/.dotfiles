@@ -14,17 +14,19 @@ git_branch() {
 #   print -Pn "%K{$i} %F{15}${(l:3::0:)i}%f%k "
 #   (( (i+1) % 16 )) || print
 # done
+
 update_mode() {
   case $KEYMAP in
-    vicmd) VI_MODE='%K{117}%F{black}[NORMAL]%f%k' ;;
-    viins|main) VI_MODE='%K{155}%F{black}[INSERT]%f%k' ;;
-    *) VI_MODE='%F{yellow}?%f' ;;
+    vicmd) VIM_MODE='%F{38}[N]%f' ;;
+    viins|main) VIM_MODE='%F{35}[I]%f' ;;
+    *) VIM_MODE='' ;;
   esac
 }
+
 zle-keymap-select() { update_mode; zle reset-prompt }
 zle -N zle-keymap-select
 zle-line-init() { zle -K viins; update_mode; zle reset-prompt }
 zle -N zle-line-init
 
-PROMPT='${VI_MODE} %F{blue}%~%f%F{yellow}$(git_branch)%f %F{green}❯%f '
-RPROMPT='${VI_MODE}'
+PROMPT='%F{blue}%~%f%F{yellow}$(git_branch)%f ${VIM_MODE}%F{green} ❯%f '
+# RPROMPT='${VI_MODE}'

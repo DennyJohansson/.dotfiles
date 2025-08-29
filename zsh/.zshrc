@@ -44,5 +44,10 @@ alias mgts='mvn generate-test-sources -DskipCheckstyle -DskipSpotbugs -Dmaven.te
 alias kdev='kubectx gke_dev-envc52ce870_europe-west1_dev-env-gke'
 alias kprod='kubectx gke_production-env66d705bb_europe-west1_production-env-gke'
 
+# zsh autocompletions
+# git clone https://github.com/zsh-users/zsh-completions.git \
+#  ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
+fpath=($HOME/zsh-completions/src $fpath)
+
 ##THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
