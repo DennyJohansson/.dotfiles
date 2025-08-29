@@ -1,0 +1,30 @@
+autoload -U colors && colors
+setopt prompt_subst
+bindkey -v
+
+git_branch() {
+  local b
+  b=$(git symbolic-ref --short -q HEAD 2>/dev/null) \
+    || b=$(git rev-parse --short HEAD 2>/dev/null) || return
+  printf ' [%s]' "$b"
+}
+
+# too see all colors in terminal
+# for i in {0..255}; do
+#   print -Pn "%K{$i} %F{15}${(l:3::0:)i}%f%k "
+#   (( (i+1) % 16 )) || print
+# done
+update_mode() {
+  case $KEYMAP in
+    vicmd) VI_MODE='%K{117}%F{black}[NORMAL]%f%k' ;;
+    viins|main) VI_MODE='%K{155}%F{black}[INSERT]%f%k' ;;
+    *) VI_MODE='%F{yellow}?%f' ;;
+  esac
+}
+zle-keymap-select() { update_mode; zle reset-prompt }
+zle -N zle-keymap-select
+zle-line-init() { zle -K viins; update_mode; zle reset-prompt }
+zle -N zle-line-init
+
+PROMPT='${VI_MODE} %F{blue}%~%f%F{yellow}$(git_branch)%f %F{green}❯%f '
+RPROMPT='${VI_MODE}'

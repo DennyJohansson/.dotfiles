@@ -10,57 +10,49 @@
 " text scroll if you mouse-click near the start or end of the window.
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 set scrolloff=5
-
 " Do incremental searching.
 set incsearch
-
 " nobody wants that bell!
 set visualbell
-
 " Don't use Ex mode, use Q for formatting.
 map Q gq
-
 " --- Enable IdeaVim plugins https://jb.gg/ideavim-plugins
-
 " Highlight copied text
 Plug 'machakann/vim-highlightedyank'
 Plug 'preservim/nerdtree'
-g Commentary plugin
+" ---g Commentary plugin
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
 
 set NERDTree
-
 filetype plugin indent on
-
 let mapleader=" "
 set relativenumber
 set number
-
 " [V]im [F]ind [A]action
 nmap <leader>vfa <Action>(VimFindActionIdAction)
-
 " [B]reakpoint
 nmap <leader>b <Action>(ToggleLineBreakpoint)
-
 " [P]roject [V]iew
 nmap <leader>pv :NERDTreeToggle<CR>
 
-" nmap <C-o> :action Back<CR>
-" nmap <C-i> :action Forward<CR>
+nmap <C-i> :action Forward<CR>
+nmap <C-o> :action Back<CR>
 
 " TESTING
 nmap <leader>bb <Action>(ToggleLineBreakpoint)
+
+" [P]roject [N]ext
+nmap <leader>pn <Action>(NextWindow)
 " [T]est [D]ebug [C]lass
-" [t]est [d]ebug
+" [T]est [D]ebug
 nmap <leader>td <Action>(Debug)
 nmap <leader>tdn <Action>(DebugClass)
-
-"" [t]est [n]earest (normally but in intelliJ it would be prev)
+"" [T]est [N]earest (normally but in intelliJ it would be prev)
 nmap <leader>tt <Action>(Run)
 nmap <leader>ttn <Action>(RunClass)
-
 nmap <leader>f <Action>(ReformatCode)
+
 nmap ]c <Action>(VcsShowNextChangeMarker)
 nmap [c <Action>(VcsShowPrevChangeMarker)
 nmap [[ <Action>(MethodUp)
@@ -68,8 +60,9 @@ nmap ]] <Action>(MethodDown)
 
 nmap <C-d> <C-d>zz
 nmap <C-u> <C-u>zz
+nmap <C-o> <Action>(Back)
+nmap <C-i> <Action>(Forward)
 
-"" should this be [d] or [e]?
 nmap ]d <Action>(GotoNextError)
 nmap [d <Action>(GotoPreviousError)
 
@@ -82,12 +75,14 @@ vmap <leader>p "+p
 vmap J :m '>+1<CR>gv=gv
 vmap K :m '<-2<CR>gv=gv
 
-" [s]earch [f]ile
+" [S]earch [F]ile
 nmap <leader>sf <Action>(GotoFile)
-" [s]earch [c]lass
+" [S]earch [C]lass
 nmap <leader>sc <Action>(GotoClass)
-" [s]earch [g]rep
+" [S]earch [G]rep
 nmap <leader>sg <Action>(TextSearchAction)
+" [S]earch [R]esume
+nmap <leader>sr <Action>(SearchEverywhere)
 " Bookmarks
 " mA - project scope
 " ma - file scope
@@ -95,34 +90,33 @@ nmap <leader>sg <Action>(TextSearchAction)
 " 'A - project scoped
 " [S]earch [B]ookmarks
 nmap <leader>sb <Action>(ShowBookmarks)
-
 " * search word under cursor forward, # backwards
-
 " refactor
-" [r]e[n]ame
+" [R]e[N]ame
 nmap <leader>rn <Action>(RenameElement)
-
-" [g]oto [r]eference
-nmap <leader>grr <Action>(FindUsages)
+" [G]oto [R]eference
+nmap grr <Action>(FindUsages)
 nmap grt <Action>(GotoTypeDeclaration)
 
 nmap <C-j> <Action>(NextOccurence)
 nmap <C-k> <Action>(PreviousOccurence)
 
-" [c]ode [a]ction
+" [C]ode [A]ction
 nmap <leader>ca <Action>(ShowIntentionActions)
 
-" [l]eader [h]elp
+" [L]eader [H]elp
 nmap <leader>lh <Action>(ShowErrorDescription)
+" [S]how [D]iagnostic
+nmap <leader>sd <Action>(ShowErrorDescription)
 
 nnoremap <space><space> :action RecentFiles<CR>
-" [v]iew [t]erminal
+" [V]iew [T]erminal
 nmap <leader>vt <Action>(ActivateTerminalToolWindow)
-" [z][z]en
+" [Z][Z]en
 nnoremap <leader>zz :action ToggleDistractionFreeMode<CR>
-" [g]it [a]ction
+" [G]it [A]ction
 nnoremap <Leader>ga :action Vcs.QuickListPopupAction<CR>
-" [g]it [b]ranches
+" [G]it [B]ranches
 nnoremap <Leader>gb :action Vcs.ShowBranches<CR>
 
 function! Invert(calledFromVisual)
@@ -151,32 +145,42 @@ endfunction
 nnoremap ! :call Invert(0)<CR>
 vnoremap ! :<C-u>call Invert(1)<CR>
 
-" Harpoon
+" Harpooner
+"nmap <leader>a <action>(HarpoonerToggleFile)
+"nmap <C-e> <action>(HarpoonerToggleQuickMenu)
+"nmap <M-h> <action>(HarpoonerOpenFile0)
+"nmap <M-j> <action>(HarpoonerOpenFile1)
+"nmap <M-l> <action>(HarpoonerOpenFile2)
+"nmap <M-;> <action>(HarpoonerOpenFile3)
+"nmap <leader>hn <action>(HarpoonerNextFileAction)
+"nmap <leader>hp <action>(HarpoonerPreviousFileAction)
+"nmap <leader>hc <action>(HarpoonerClearMenu)
+" HarpoonIJ
 nmap <leader>a <action>(AddToHarpoon)
 nmap <C-e> <action>(ShowHarpoon)
 " nmap <leader>hn <action>(HarpoonerNextFileAction)
 " nmap <leader>hp <action>(HarpoonerPreviousFileAction)
 " -- [h][t][n][s] are the default keys for navigation, all the keys are right hand accessible
-nmap <C-h> <action>(GoToHarpoon[1])
-nmap <C-t> <action>(GoToHarpoon[2])
-nmap <C-n> <action>(GoToHarpoon[3])
-nmap <C-s> <action>(GoToHarpoon[4])
+"nmap <C-h> <action>(GoToHarpoon[1])
+"nmap <C-t> <action>(GoToHarpoon[2])
+"nmap <C-n> <action>(GoToHarpoon[3])
+"nmap <C-s> <action>(GoToHarpoon[4])
+
 " Run
 nmap <leader>rt <action>(Run)
 nmap <leader>rd <action>(Debug)
 " Hierarchy
 map <leader>th :action TypeHierarchy<CR>
 " Show recent changed files,
-" leader [g]it [s]earch
+" leader [G]it [S]earch
 nmap <leader>gs <Action>(ActivateCommitToolWindow)
 " Recent changes
-" [u]ndo
+" [U]ndo
 nmap <leader>u (RecentChanges)
 " [G]enerate [C]ode
 map <leader>gc <Action>(Generate)
 " [I]intellJ [G]o to [T]est -- command + shift + t
 map <leader>igt <Action>(GoToTest)
-
 " don't want H
 " map H h
 " Popup navigation (refactor)
