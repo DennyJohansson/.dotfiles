@@ -17,8 +17,8 @@ git_branch() {
 
 update_mode() {
   case $KEYMAP in
-    vicmd) VIM_MODE='%F{38}[N]%f' ;;
-    viins|main) VIM_MODE='%F{35}[I]%f' ;;
+    vicmd) VIM_MODE='%F{116}[N]%f' ;;
+    viins|main) VIM_MODE='%F{155}[I]%f' ;;
     *) VIM_MODE='' ;;
   esac
 }
@@ -28,5 +28,5 @@ zle -N zle-keymap-select
 zle-line-init() { zle -K viins; update_mode; zle reset-prompt }
 zle -N zle-line-init
 
-PROMPT='%F{blue}%~%f%F{yellow}$(git_branch)%f ${VIM_MODE}%F{green} ❯%f '
+PROMPT='%F{blue}%~%f%F{yellow}$(git_branch)%f${VIM_MODE}%F{green} ❯%f '
 # RPROMPT='${VI_MODE}'

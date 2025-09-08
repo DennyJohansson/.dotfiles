@@ -1,0 +1,34 @@
+<application>
+  <component name="Trusted.Paths">
+    <option name="TRUSTED_PROJECT_PATHS">
+      <map>
+        <entry key="$USER_HOME$/personal/java/aoc24" value="true" />
+        <entry key="$USER_HOME$/personal/java/cli/my-app" value="true" />
+        <entry key="$USER_HOME$/personal/java/integer_sum_method" value="true" />
+        <entry key="$USER_HOME$/personal/java/simple_calculator" value="true" />
+        <entry key="$USER_HOME$/personal/java/small_things" value="true" />
+        <entry key="$USER_HOME$/personal/java/word" value="true" />
+        <entry key="$USER_HOME$/workwork/righthub/auth-support" value="true" />
+        <entry key="$USER_HOME$/workwork/righthub/back-office" value="true" />
+        <entry key="$USER_HOME$/workwork/righthub/drafting-copilot-backend" value="true" />
+        <entry key="$USER_HOME$/workwork/righthub/feature-toggle" value="true" />
+        <entry key="$USER_HOME$/workwork/righthub/ip-portfolio" value="true" />
+        <entry key="$USER_HOME$/workwork/righthub/ip-transactions" value="true" />
+        <entry key="$USER_HOME$/workwork/righthub/java-examples" value="true" />
+        <entry key="$USER_HOME$/workwork/righthub/notifications" value="true" />
+        <entry key="$USER_HOME$/workwork/righthub/rh-common" value="true" />
+        <entry key="$USER_HOME$/workwork/righthub/rh-messages" value="true" />
+        <entry key="$USER_HOME$/workwork/righthub/uploads" value="true" />
+        <entry key="$USER_HOME$/workwork/righthub/users" value="true" />
+      </map>
+    </option>
+  </component>
+  <component name="Trusted.Paths.Settings">
+    <option name="TRUSTED_PATHS">
+      <list>
+        <option value="$USER_HOME$/workwork/righthub" />
+        <option value="$USER_HOME$/personal/java" />
+      </list>
+    </option>
+  </component>
+</application>

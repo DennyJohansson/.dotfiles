@@ -198,4 +198,7 @@ nmap <d-=> <Action>(ZoomInIdeAction)
 " [Z]oom [O]ut
 nmap <d--> <Action>(ZoomOutIdeAction)
 
-"nmap <leader>lh <Action>(ErrorDescription)
+nmap <leader>lh <Action>(ErrorDescription)
+" In insert mode, Ctrl-Y accepts the current completion
+"inoremap <C-y> <C-o>:action EditorChooseLookupItem<CR>
+imap <C-y> <Action>(EditorChooseLookupItemReplace)

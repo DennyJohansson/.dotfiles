@@ -1,0 +1,14 @@
+<application>
+  <component name="GitLabAccounts">{
+  &quot;accounts&quot;: [
+    {
+      &quot;id&quot;: &quot;d991618e-a15b-4545-969d-935f7f763836&quot;,
+      &quot;name&quot;: &quot;Dempad&quot;,
+      &quot;server&quot;: {
+        &quot;uri&quot;: &quot;https://gitlab.com&quot;
+      }
+    }
+  ]
+}</component>
+  <component name="GitLabSettings"><![CDATA[{}]]></component>
+</application>

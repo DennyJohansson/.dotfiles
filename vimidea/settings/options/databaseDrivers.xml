@@ -1,0 +1,16 @@
+<application>
+  <component name="LocalDatabaseDriverManager" version="201">
+    <driver id="postgresql.cloud_sql">
+      <artifact id="PostgreSQL" name="PostgreSQL" use="true" version="42.6.0" />
+      <artifact id="cloud_sql.postgres" name="cloud_sql.postgres" use="true" version="1.13.1" />
+    </driver>
+    <driver id="java.sql.Driver" name="User Driver" driver-class="java.sql.Driver" />
+    <driver id="6b9fb9a1-7faa-4aad-a77b-e1a3b52b4e56" name="GCP proxy" driver-class="org.postgresql.Driver">
+      <url-template name="default" template="jdbc:postgresql:///{database:database}?[\?&lt;&amp;,enableIamAuth={enableIamAuth:param:true},socketFactory={socketFactory:param:com.google.cloud.sql.postgres.SocketFactory},cloudSqlInstance={cloudSqlInstance:param},user={user:param},password={password::Dummy},{:identifier}={:param}&gt;]" />
+      <artifact id="PostgreSQL" name="PostgreSQL" use="true" version="42.6.0" />
+      <library>
+        <url>file://$USER_HOME$/stuff/postgres-socket-factory-1.20.0-jar-with-dependencies.jar</url>
+      </library>
+    </driver>
+  </component>
+</application>

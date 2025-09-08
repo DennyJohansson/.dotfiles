@@ -314,4 +314,5 @@ require("lazy").setup({
 			},
 		},
 	},
+	{ "nvim-java/nvim-java" },
 }, {})

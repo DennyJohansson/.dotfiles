@@ -1,0 +1,8 @@
+org.intellij.plugins.hcl
+IdeaVIM
+ca.alexgirard.HarpoonIJ
+com.arcticicestudio.nord.jetbrains
+com.junkfactory.tokyodark
+gherkin
+cucumber-java
+com.intellij.ml.llm
