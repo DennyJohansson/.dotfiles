@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# also add root here
 if [[ $# -eq 1 ]]; then
 #    printf "Using session $1\n"
     selected=$1
@@ -29,3 +30,4 @@ fi
 
 # printf "Switching to session $selected_name\n"
 tmux switch-client -t $selected_name
+

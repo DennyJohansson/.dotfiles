@@ -130,7 +130,12 @@ Key.on("3", LEADER, function () {
 
 Key.on("2", LEADER, () => {
   // launchApp("Google Chrome");
-  launchApp("Chromium");
+  launchApp("Google Chrome for Testing");
+});
+
+Key.on("1", LEADER, () => {
+  // launchApp("Google Chrome");
+  launchApp("Finder");
 });
 
 // Key.on("2", LEADER, function () {

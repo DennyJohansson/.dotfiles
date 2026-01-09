@@ -314,5 +314,20 @@ require("lazy").setup({
 			},
 		},
 	},
+	-- {
+	-- 	"gbprod/nord.nvim",
+	-- 	opts = {
+	-- 		lazy = false,
+	-- 		priority = 1000,
+	-- 		config = function()
+	-- 			require("nord").setup({})
+	-- 			vim.cmd.colorscheme("nord")
+	-- 		end,
+	-- 	},
+	-- 	install = {
+	-- 		colorscheme = { "nord" },
+	-- 	},
+	-- },
+	{ "ellisonleao/gruvbox.nvim", priority = 1000 },
 	{ "nvim-java/nvim-java" },
 }, {})

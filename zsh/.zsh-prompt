@@ -9,24 +9,4 @@ git_branch() {
   printf ' [%s]' "$b"
 }
 
-# too see all colors in terminal
-# for i in {0..255}; do
-#   print -Pn "%K{$i} %F{15}${(l:3::0:)i}%f%k "
-#   (( (i+1) % 16 )) || print
-# done
-
-update_mode() {
-  case $KEYMAP in
-    vicmd) VIM_MODE='%F{116}[N]%f' ;;
-    viins|main) VIM_MODE='%F{155}[I]%f' ;;
-    *) VIM_MODE='' ;;
-  esac
-}
-
-zle-keymap-select() { update_mode; zle reset-prompt }
-zle -N zle-keymap-select
-zle-line-init() { zle -K viins; update_mode; zle reset-prompt }
-zle -N zle-line-init
-
-PROMPT='%F{blue}%~%f%F{yellow}$(git_branch)%f${VIM_MODE}%F{green} ❯%f '
-# RPROMPT='${VI_MODE}'
+PROMPT='%F{blue}%~%f%F{yellow}$(git_branch)%f%F{green} ❯%f '

@@ -1,13 +1,4 @@
-" .ideavimrc is a configuration file for IdeaVim plugin. It uses
-"   the same commands as the original .vimrc configuration.
-" You can find a list of commands here: https://jb.gg/h38q75
-" Find more examples here: https://jb.gg/share-ideavimrc
-"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
-"" :actionlist to view all available actions. Enable "Track Action Ids" to see
-"" the action id after each action
-"" -- Suggested options --
-" Show a few lines of context around the cursor. Note that this makes the
-" text scroll if you mouse-click near the start or end of the window.
+set idearefactormode=keep
 "" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
 set scrolloff=5
 " Do incremental searching.
@@ -145,26 +136,14 @@ endfunction
 nnoremap ! :call Invert(0)<CR>
 vnoremap ! :<C-u>call Invert(1)<CR>
 
-" Harpooner
-"nmap <leader>a <action>(HarpoonerToggleFile)
-"nmap <C-e> <action>(HarpoonerToggleQuickMenu)
-"nmap <M-h> <action>(HarpoonerOpenFile0)
-"nmap <M-j> <action>(HarpoonerOpenFile1)
-"nmap <M-l> <action>(HarpoonerOpenFile2)
-"nmap <M-;> <action>(HarpoonerOpenFile3)
-"nmap <leader>hn <action>(HarpoonerNextFileAction)
-"nmap <leader>hp <action>(HarpoonerPreviousFileAction)
-"nmap <leader>hc <action>(HarpoonerClearMenu)
-" HarpoonIJ
-nmap <leader>a <action>(AddToHarpoon)
-nmap <C-e> <action>(ShowHarpoon)
-" nmap <leader>hn <action>(HarpoonerNextFileAction)
-" nmap <leader>hp <action>(HarpoonerPreviousFileAction)
-" -- [h][t][n][s] are the default keys for navigation, all the keys are right hand accessible
-"nmap <C-h> <action>(GoToHarpoon[1])
-"nmap <C-t> <action>(GoToHarpoon[2])
-"nmap <C-n> <action>(GoToHarpoon[3])
-"nmap <C-s> <action>(GoToHarpoon[4])
+" Harpoon
+nmap <C-e> <action>(HarpoonerToggleQuickMenu)
+nmap <leader>a <action>(HarpoonerToggleFile)
+
+nmap <M-j> <action>(HarpoonerOpenFile0)
+nmap <M-k> <action>(HarpoonerOpenFile1)
+nmap <M-l> <action>(HarpoonerOpenFile2)
+nmap <M-;> <action>(HarpoonerOpenFile3)
 
 " Run
 nmap <leader>rt <action>(Run)
@@ -179,8 +158,9 @@ nmap <leader>gs <Action>(ActivateCommitToolWindow)
 nmap <leader>u (RecentChanges)
 " [G]enerate [C]ode
 map <leader>gc <Action>(Generate)
-" [I]intellJ [G]o to [T]est -- command + shift + t
-map <leader>igt <Action>(GoToTest)
+" [F]o to [T]est -- command + shift + t
+" map <leader>ft <Action>(GoToTest)
+map <leader>gt <Action>(GoGenerateTest)
 " don't want H
 " map H h
 " Popup navigation (refactor)
@@ -201,4 +181,8 @@ nmap <d--> <Action>(ZoomOutIdeAction)
 nmap <leader>lh <Action>(ErrorDescription)
 " In insert mode, Ctrl-Y accepts the current completion
 "inoremap <C-y> <C-o>:action EditorChooseLookupItem<CR>
-imap <C-y> <Action>(EditorChooseLookupItemReplace)
+imap <C-y> <Action>(EditorChooseLookupItem)
+" imap <C-y> <Action>(EditorChooseLookupItemReplace)
+
+" [Z]en
+nmap <C-z> <Action>(ToggleDistractionFreeMode)

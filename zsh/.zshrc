@@ -8,9 +8,13 @@ function set-title-preexec() {
 
 setopt AUTO_CD # Go to folder path without using cd.
 setopt inc_append_history
+setopt EXTENDED_HISTORY
 
 autoload -Uz add-zsh-hook
-autoload -U compinit && compinit
+
+fpath=($HOME/zsh-completions/src $fpath)
+autoload -Uz compinit
+compinit -C
 
 add-zsh-hook precmd set-title-precmd
 add-zsh-hook preexec set-title-preexec
@@ -25,10 +29,8 @@ alias rm-parent-dir="cd -P . &&
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# General
-alias ll='ls -lah' #List files with more information
+alias ll='ls -lah'
 alias cl="clear"
-alias pn="pnpm"
 alias ls='ls --color=auto -hv'
 
 # [M]aven [C]lean [I]nstall
@@ -46,6 +48,8 @@ alias mgts='mvn generate-test-sources -DskipCheckstyle -DskipSpotbugs -Dmaven.te
 alias kdev='kubectx gke_dev-envc52ce870_europe-west1_dev-env-gke'
 alias kprod='kubectx gke_production-env66d705bb_europe-west1_production-env-gke'
 
+alias gauth='gcloud auth login && gcloud auth application-default login'
+
 # fzf pid's to kill
 fkill() {
     local pid
@@ -61,23 +65,51 @@ fkill() {
     fi
 }
 
-#alias fscripts='jq -r .scripts package.json | fzf'
 # fuzzy-search scripts from package.json and run them
-fscripts() {
+fscript() {
   local script
   script=$(jq -r '.scripts | keys[]' package.json | fzf) || return
   [[ -n $script ]] && npm run "$script"
 }
 
-# zsh autocompletions
-# git clone https://github.com/zsh-users/zsh-completions.git \
-#  ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
-fpath=($HOME/zsh-completions/src $fpath)
+# search history, and run
+fhistory() {
+  local cmd
+  cmd=$(fc -ln -m "*$* *" 1 | fzf) || return
+  [[ -z $cmd ]] && return
+  print -s -- "$cmd"
+  eval "$cmd"
+}
 
-##THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+alias fh='fc -ln -m "*$* *" 1 | fzf'
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc' ]; then . '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc'; fi
+# record time to startup azsh
+alias zsh_zprof=time ZSH_DEBUGRC=1 zsh -i -c exit
+
 # The next line enables shell command completion for gcloud.
-if [ -f '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc'; fi
+__load_gcloud() {
+  unset -f gcloud gsutil bq
+  [ -f '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc' ] && . '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc'
+  [ -f '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc' ] && . '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc'
+}
+
+gcloud(){ __load_gcloud; gcloud "$@"; }
+gsutil(){ __load_gcloud; gsutil "$@"; }
+bq()    { __load_gcloud; bq "$@"; }
+
+# fnm (lazy)
+export FNM_PATH="/opt/homebrew/opt/fnm/bin"
+export PATH="$FNM_PATH:$PATH"
+
+__load_fnm() {
+  unset -f node npm npx pnpm corepack fnm
+  eval "$(fnm env --shell zsh)"
+}
+
+node()    { __load_fnm; node "$@"; }
+npm()     { __load_fnm; npm "$@"; }
+npx()     { __load_fnm; npx "$@"; }
+pnpm()    { __load_fnm; pnpm "$@"; }
+corepack(){ __load_fnm; corepack "$@"; }
+fnm()     { __load_fnm; fnm "$@"; }
+

@@ -28,7 +28,22 @@
 --    an lsp (for example, opening `main.rs` is associated with `rust_analyzer`) this
 --    function will be executed to configure the current buffer
 require("java").setup()
-require("lspconfig").jdtls.setup({})
+local root_markers = { "gradlew", "mvnw", "pom.xml", "build.gradle", ".git" }
+require("lspconfig").jdtls.setup({
+	root_dir = require("lspconfig.util").root_pattern(unpack(root_markers)),
+	settings = {
+		java = {
+			format = {
+				enabled = true,
+				settings = {
+					-- Path to the Eclipse formatter XML you exported from IntelliJ
+					url = vim.fn.expand("~/.config/nvim/Righthub_code_style.xml"),
+					profile = "Righthub", -- must match the profile name in the XML
+				},
+			},
+		},
+	},
+})
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("kickstart-lsp-attach", { clear = true }),
 	callback = function(event)
