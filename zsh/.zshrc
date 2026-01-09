@@ -65,23 +65,30 @@ fkill() {
     fi
 }
 
-# fuzzy-search scripts from package.json and run them
 fscript() {
   local script
   script=$(jq -r '.scripts | keys[]' package.json | fzf) || return
-  [[ -n $script ]] && npm run "$script"
+  [[ -z $script ]] && return
+
+  BUFFER="npm run -- ${script}"
+  CURSOR=${#BUFFER}
 }
 
-# search history, and run
+zle -N fscript
+bindkey '^S' fscript   # Ctrl-S (pick any)
+
 fhistory() {
   local cmd
   cmd=$(fc -ln -m "*$* *" 1 | fzf) || return
   [[ -z $cmd ]] && return
-  print -s -- "$cmd"
-  eval "$cmd"
+
+  BUFFER="$cmd"
+  CURSOR=${#BUFFER}
 }
 
-alias fh='fc -ln -m "*$* *" 1 | fzf'
+zle -N fhistory
+bindkey '^R' fhistory   # Ctrl-R
+
 
 # record time to startup azsh
 alias zsh_zprof=time ZSH_DEBUGRC=1 zsh -i -c exit
