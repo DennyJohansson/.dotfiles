@@ -75,7 +75,7 @@ fscript() {
 }
 
 zle -N fscript
-bindkey '^S' fscript   # Ctrl-S (pick any)
+bindkey '^P' fscript
 
 fhistory() {
   local cmd
